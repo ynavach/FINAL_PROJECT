@@ -41,6 +41,11 @@ export const Navbar = () => {
 					Contacto
 				  </Link>
 				</li>
+				<li className="nav-item">
+				  <Link to="/login" className="nav-link">
+					Login
+				  </Link>
+				</li>
 			  </ul>
 			  <div className="ml-auto">
 				<Link to="/demo">

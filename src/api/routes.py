@@ -46,3 +46,12 @@ def handle_login():
         return jsonify({
             "jwt_token": jwt_token
         }), 200
+
+@api.route('/private', methods=['GET'])
+@jwt_required()
+def handle_private():
+    user_id = get_jwt_identity()
+    user = User.query.get(user_id)
+    return jsonify({
+        "user": user.serialize()
+    }), 200
