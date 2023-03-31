@@ -1,22 +1,45 @@
-import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import consultaUrl from "../../img/consulta.png"
-import vacunacionUrl from "../../img/vacunacion.png"
-import cirugiaUrl from "../../img/cirugia.png"
-import peluqueriaUrl from "../../img/peluqueria.png"
-import desparasitacionUrl from "../../img/desparasitacion.png"
-import emergenciaUrl from "../../img/emergencia.png"
-
+import React, { useState } from "react";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import consultaUrl from "../../img/consulta.png";
+import vacunacionUrl from "../../img/vacunacion.png";
+import cirugiaUrl from "../../img/cirugia.png";
+import peluqueriaUrl from "../../img/peluqueria.png";
+import desparasitacionUrl from "../../img/desparasitacion.png";
+import emergenciaUrl from "../../img/emergencia.png";
 
 const Services = () => {
+  const [hoveredCard, setHoveredCard] = useState(null);
+
+  const handleCardHover = (index) => {
+    setHoveredCard(index);
+  };
+
+  const handleCardLeave = () => {
+    setHoveredCard(null);
+  };
+
   return (
     <Container>
-      <h1 className='mb-5 mt-5'>Servicios</h1>
+      <h1 className="mb-5 mt-5">Servicios</h1>
       <Row>
-      <Col md={4}>
-      <Card style={{height: "100%"}}>
+        <Col md={4}>
+          <Card
+            style={{
+              height: "100%",
+              boxShadow:
+                hoveredCard === 0 ? "0 0 10px rgba(103, 58, 183, 0.7)" : "",
+            }}
+            onMouseEnter={() => handleCardHover(0)}
+            onMouseLeave={handleCardLeave}
+          >
             <Card.Body>
-            <img src={consultaUrl} style={{ display: 'block', margin: 'auto' }} width="120" height="150" alt="Foto de Consulta" />
+              <img
+                src={consultaUrl}
+                style={{ display: "block", margin: "auto" }}
+                width="120"
+                height="150"
+                alt="Foto de Consulta"
+              />
               <Card.Title>Consultas</Card.Title>
               <Card.Text>
                 Ofrecemos consultas para perros, gatos y animales exóticos.
@@ -27,14 +50,27 @@ const Services = () => {
                 <li>Consulta de enfermedades</li>
                 <li>Consulta post-operación</li>
               </ul>
-              <Button variant="primary">Agendar cita</Button>
             </Card.Body>
           </Card>
         </Col>
         <Col md={4}>
-        <Card style={{height: "100%"}}>
+          <Card
+            style={{
+              height: "100%",
+              boxShadow:
+                hoveredCard === 1 ? "0 0 10px rgba(103, 58, 183, 0.7)" : "",
+            }}
+            onMouseEnter={() => handleCardHover(1)}
+            onMouseLeave={handleCardLeave}
+          >
             <Card.Body>
-              <img src={vacunacionUrl}  style={{ display: 'block', margin: 'auto' }} width="100" height="100" alt="Foto de Consulta" />
+              <img
+                src={vacunacionUrl}
+                style={{ display: "block", margin: "auto", marginTop: "20px" }}
+                width="100"
+                height="100"
+                alt="Foto de Consulta"
+              />
               <Card.Title>Vacunación</Card.Title>
               <Card.Text>
                 Contamos con vacunas para prevenir diversas enfermedades.
@@ -45,14 +81,26 @@ const Services = () => {
                 <li>Vacuna contra el parvovirus</li>
                 <li>Vacuna contra la leptospirosis</li>
               </ul>
-              <Button variant="primary">Agendar cita</Button>
             </Card.Body>
           </Card>
         </Col>
         <Col md={4}>
-        <Card style={{height: "100%"}}>
+          <Card
+            style={{
+              height: "100%",
+              boxShadow: hoveredCard === 2 ? "0 0 10px rgba(0, 0, 139, 0.7)" : "",
+            }}
+            onMouseEnter={() => handleCardHover(2)}
+            onMouseLeave={handleCardLeave}
+          >
             <Card.Body>
-              <img src={cirugiaUrl}  style={{ display: 'block', margin: 'auto' }} width="120" height="150" alt="Foto de Consulta" />
+              <img
+                src={cirugiaUrl}
+                style={{ display: "block", margin: "auto" }}
+                width="120"
+                height="150"
+                alt="Foto de Consulta"
+              />
               <Card.Title>Cirugía</Card.Title>
               <Card.Text>Realizamos cirugías de diversos tipos.</Card.Text>
               <Card.Text>Algunos de nuestros servicios:</Card.Text>
@@ -61,12 +109,19 @@ const Services = () => {
                 <li>Cirugía de columna</li>
                 <li>Cirugía ortopédica</li>
               </ul>
-              <Button variant="primary">Agendar cita</Button>
             </Card.Body>
           </Card>
         </Col>
+        </Row>
+        <Row className="mt-4">
         <Col md={4}>
-        <Card style={{height: "100%"}}>
+        <Card style={{
+              height: "100%",
+              boxShadow: hoveredCard === 3 ? "0 0 10px rgba(0, 0, 139, 0.7)" : "",
+            }}
+            onMouseEnter={() => handleCardHover(3)}
+            onMouseLeave={handleCardLeave}
+          >
             <Card.Body>
               <img src={peluqueriaUrl}  style={{ display: 'block', margin: 'auto' }} width="120" height="150" alt="Foto de Consulta" />
               <Card.Title>Peluquería</Card.Title>
@@ -79,12 +134,17 @@ const Services = () => {
                 <li>Baño y secado</li>
                 <li>Corte de uñas</li>
               </ul>
-              <Button variant="primary">Agendar cita</Button>
             </Card.Body>
           </Card>
         </Col>
         <Col md={4}>
-        <Card style={{height: "100%"}}>
+        <Card style={{
+              height: "100%",
+              boxShadow: hoveredCard === 4 ? "0 0 10px rgba(0, 0, 139, 0.7)" : "",
+            }}
+            onMouseEnter={() => handleCardHover(4)}
+            onMouseLeave={handleCardLeave}
+          >
           <Card.Body>
             <img src={desparasitacionUrl}  style={{ display: 'block', margin: 'auto' }} width="120" height="150" alt="Foto de Consulta" />
             <Card.Title>Desparasitación</Card.Title>
@@ -97,12 +157,17 @@ const Services = () => {
               <li>Prevención de enfermedades parasitarias</li>
               <li>Asesoramiento sobre cuidados preventivos</li>
             </ul>
-            <Button variant="primary">Agendar cita</Button>
           </Card.Body>
         </Card>
       </Col>
       <Col md={4}>
-      <Card style={{height: "100%"}}>
+      <Card style={{
+              height: "100%",
+              boxShadow: hoveredCard === 5 ? "0 0 10px rgba(0, 0, 139, 0.7)" : "",
+            }}
+            onMouseEnter={() => handleCardHover(5)}
+            onMouseLeave={handleCardLeave}
+          >
           <Card.Body>
             <img src={emergenciaUrl}  style={{ display: 'block', margin: 'auto' }} width="120" height="150" alt="Foto de Consulta" />
             <Card.Title>Emergencias</Card.Title>
@@ -115,7 +180,6 @@ const Services = () => {
               <li>Estabilización de mascotas en estado crítico</li>
               <li>Monitoreo y cuidados intensivos</li>
             </ul>
-            <Button variant="primary">Llamar ahora</Button>
           </Card.Body>
         </Card>
       </Col>
