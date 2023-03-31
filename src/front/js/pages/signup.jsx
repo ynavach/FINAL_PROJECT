@@ -12,12 +12,11 @@ export const Signup = () => {
 	const [userPhone, setUserPhone] = useState();
 
 
+
 	const verifyInput=(email,pass,name,last,phone)=>{
 		if ((email == undefined)||(pass== undefined)||(name== undefined)||(last== undefined)||(phone== undefined)){
-			console.log("undefined")
 			return false
 		} else {
-			console.log("definido")
 			if((email.trim().length >= 1) && (pass.trim().length >= 1) && (name.trim().length >= 1) && (last.trim().length >= 1)&&(phone.trim().length >= 1)){
 				return true
 			}
@@ -26,6 +25,7 @@ export const Signup = () => {
 	}
 
 	const createUser= async()=>{
+		
 		let bodyUser= {
 			"email": userEmail,
 			"password": userPass,
@@ -33,16 +33,15 @@ export const Signup = () => {
 			"last_name":userLastName,
 			"phone_number":userPhone
 		}
-		console.log(bodyUser)
+
 		if (verifyInput(userEmail,userPass,userName,userLastName,userPhone)){
 			console.log("carga datos")
 			try{
-				const response = await fetch('url',{
+				const response = await fetch('https://3001-ynavach-finalproject-jqyjlz5o8zs.ws-us93.gitpod.io/api/signup',{
 					method: "POST",
 					headers:{
 						'Content-Type': 'application/json'
 					},
-	
 					body: JSON.stringify(bodyUser)
 				})
 			}
@@ -50,14 +49,14 @@ export const Signup = () => {
 				console.log(error)
 			}
 		}else{
-			console.log("rechaza datos")
+			alert("Ingresar los datos requeridos en el formulario para crear el usuario")
 		}
 
 
 	}
 	return (
 		<div className="container mt-5">
-			<div className="col-4 p-5 border border-dark rounded-4">
+			<form className="col-4 p-5 border border-dark rounded-4">
 				<div className="d-flex justify-content-between"> 
 					<div className="mb-3">
 						<label htmlFor="userName" className="form-label" >Nombre</label>
@@ -81,7 +80,7 @@ export const Signup = () => {
 					<input type="password" className="form-control" id="exampleInputPassword1" onChange={e=>setUserPass(e.target.value)}/>
 				</div>
 				<button type="" className="btn btn-primary" onClick={e=>createUser()}>Crear</button>
-			</div>
+			</form>
 		</div>
 	);
 };
