@@ -5,8 +5,17 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 
-api = Blueprint('api', __name__)
+from flask_migrate import Migrate
+from flask_swagger import swagger
+from flask_cors import CORS
 
+from werkzeug.security import generate_password_hash, check_password_hash
+
+from bcrypt import gensalt
+
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
+
+api = Blueprint('api', __name__)
 
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
@@ -16,3 +25,24 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+@api.route('/login', methods=['POST'])
+def handle_login():
+    data = request.json
+    # Email validation
+    user = User.query.filter_by(email=data['email']).one_or_none()
+    if user is None: 
+        return jsonify({
+            "error": "Datos incorrectos"
+        }), 400
+    # Hash password validation
+    correct_password = check_password_hash(user.hashed_password, data['password'] + user.salt)
+    if not correct_password: 
+        return jsonify({
+            "error": "Datos incorrectos"
+        }), 400
+    if correct_password:
+        jwt_token = create_access_token(identity=user.id)
+        return jsonify({
+            "jwt_token": jwt_token
+        }), 200
