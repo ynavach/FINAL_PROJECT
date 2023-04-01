@@ -8,8 +8,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from bcrypt import gensalt
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 
-api = Blueprint('api', __name__)
 
+
+
+api = Blueprint('api', __name__)
 
 
 @api.route('/signup', methods=['POST'])
@@ -26,4 +28,35 @@ def handle_signup():
         db.session.add(new_user)
         db.session.commit()
 
-        return jsonify(data), 201
+    return jsonify(data), 201
+    
+
+@api.route('/login', methods=['POST'])
+def handle_login():
+    data = request.json
+    # Email validation
+    user = User.query.filter_by(email=data['email']).one_or_none()
+    if user is None: 
+        return jsonify({
+            "error": "Datos incorrectos"
+        }), 400
+    # Hash password validation
+    correct_password = check_password_hash(user.hashed_password, data['password'] + user.salt)
+    if not correct_password: 
+        return jsonify({
+            "error": "Datos incorrectos"
+        }), 400
+    if correct_password:
+        jwt_token = create_access_token(identity=user.id)
+        return jsonify({
+            "jwt_token": jwt_token
+        }), 200
+
+@api.route('/private', methods=['GET'])
+@jwt_required()
+def handle_private():
+    user_id = get_jwt_identity()
+    user = User.query.get(user_id)
+    return jsonify({
+        "user": user.serialize()
+    }), 200
