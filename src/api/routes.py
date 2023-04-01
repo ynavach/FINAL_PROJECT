@@ -21,7 +21,8 @@ def handle_signup():
         new_user.name = data['name']
         new_user.last_name = data['last_name']
         new_user.phone_number = data['phone_number']
-        new_user.password = data['password']
+        new_user.hashed_password = data['hashed_password']
+        new_user.salt = data['salt']
         db.session.add(new_user)
         db.session.commit()
 
