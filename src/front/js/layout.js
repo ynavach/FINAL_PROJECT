@@ -1,13 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
+import injectContext from "./store/appContext";
 
 import { Home } from "./pages/home";
 import { Signup } from "./pages/signup.jsx";
-import { Single } from "./pages/single";
-import injectContext from "./store/appContext";
-
-import Services from "./component/services.jsx";
+import { Services } from "./component/services.jsx";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { LoginPage } from "./pages/login.jsx";
@@ -28,7 +26,6 @@ const Layout = () => {
                         <Route element={<Signup />} path="/signup" />
                         <Route element={<Services />} path="/services" />
                         <Route element={<LoginPage />} path="/login" />
-                        <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />
