@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import injectContext from "./store/appContext";
 
-import { Home } from "./pages/home";
+import Services from "./component/services.jsx";
+import { Home } from "./pages/home.jsx";
 import { Signup } from "./pages/signup.jsx";
-import { Services } from "./component/services.jsx";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { LoginPage } from "./pages/login.jsx";
