@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import logohuellasUrl from "../../img/logohuellas1.png";
+import logohuellasUrl from "../../img/logohuellaspc.png";
 
 export const Navbar = () => {
   return (
@@ -22,7 +22,7 @@ export const Navbar = () => {
           <img
             src={logohuellasUrl}
             alt="Huellas PetCare"
-            style={{ height: "100px", width: "150px", objectFit: "contain" }}
+            style={{ height: "200px", width: "200px", objectFit: "contain" }}
           />
         </Link>
         <button
