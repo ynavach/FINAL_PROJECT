@@ -30,8 +30,8 @@ export const Navbar = () => {
         </Link>
         </li>
         <li className="nav-item">
-        <Link to="/contact">
-          <span className="nav-link" style={{color:"#FFFFFF"}} href="#">Contáctanos</span>
+        <Link to="/gallery">
+          <span className="nav-link" style={{color:"#FFFFFF"}} href="#">Galeria</span>
           </Link>
         </li>
         <li className="nav-item">        
