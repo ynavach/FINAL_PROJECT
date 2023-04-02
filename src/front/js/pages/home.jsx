@@ -10,7 +10,7 @@ export const Home = () => {
 	return (
 
 
-		<div className="text-center mt-5">
+		<div className="text-center">
 			<div className="jumbotron p-5 mt-3 mb-3 bg-light ">
 				<h1 className="display-4">¿Emergencia de mascotas fuera del horario de atención?  <br></br> <br></br> ¡Estamos aquí para ayudar!</h1>
 				<p className="lead"></p>
