@@ -38,7 +38,7 @@ export const Signup = () => {
 		if (verifyInput(userEmail,userPass,userName,userLastName,userPhone)){
 			console.log("carga datos")
 			try{
-				const response = await fetch('https://3001-ynavach-finalproject-jqyjlz5o8zs.ws-us93.gitpod.io/api/signup',{
+				const response = await fetch(process.env.BACKEND_URL + "/api/signup",{
 					method: "POST",
 					headers:{
 						'Content-Type': 'application/json'
