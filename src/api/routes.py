@@ -16,19 +16,28 @@ api = Blueprint('api', __name__)
 
 @api.route('/signup', methods=['POST'])
 def handle_signup():
+    email = User.query.filter_by(email=data['email']).one_or_none()
+    phone = User.query.filter_by(email=data['phone_number']).one_or_none()
     if request.method == 'POST':
-        data = request.json
-        new_user = User()
-        new_user.email = data['email']
-        new_user.name = data['name']
-        new_user.last_name = data['last_name']
-        new_user.phone_number = data['phone_number']
-        new_user.hashed_password = data['hashed_password']
-        new_user.salt = data['salt']
-        db.session.add(new_user)
-        db.session.commit()
-
-    return jsonify(data), 201
+        if email is not None or phone is not None: 
+            salt = str(gensalt())
+            password_hash = generate_password_hash(data['password'] + salt)
+            data = request.json
+            new_user = User()
+            new_user.email = data['email']
+            new_user.name = data['name']
+            new_user.last_name = data['last_name']
+            new_user.phone_number = data['phone_number']
+            new_user.hashed_password = password_hash
+            new_user.salt = salt
+            new_user.medic = data['medic']
+            db.session.add(new_user)
+            db.session.commit()
+            return jsonify(data), 201
+        else:
+            return jsonify({
+            "error": "usuario existente"
+            }), 400
     
 
 @api.route('/login', methods=['POST'])

@@ -31,7 +31,8 @@ export const Signup = () => {
 			"password": userPass,
 			"name":userName,
 			"last_name":userLastName,
-			"phone_number":userPhone
+			"phone_number":userPhone,
+			"medic":false
 		}
 
 		if (verifyInput(userEmail,userPass,userName,userLastName,userPhone)){
