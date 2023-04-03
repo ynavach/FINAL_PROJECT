@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../styles/home.css";
 
 export const Footer = () => (
-	<nav className="navbar navbar-expand-lg fixed-bottom" style={{backgroundColor:"#AB46D2"}}>
+	<nav className="navbar navbar-expand-lg sticky-bottom" style={{backgroundColor:"#AB46D2"}}>
 	  <div className="container-fluid">
 		<a className="navbar-brand  position-relative top-50 start-0 ms-5 ps-5" style={{color:"#FFFFFF"}} >Copyright Your <code>&#169;</code> website 2023</a>
 		<div className="social-links">
