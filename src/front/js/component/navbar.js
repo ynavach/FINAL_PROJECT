@@ -66,7 +66,7 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarRight">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink to="/register" className="nav-link" activeClassName="active" style={{ color: "#F4378D", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
+              <NavLink to="/signup" className="nav-link" activeClassName="active" style={{ color: "#F4378D", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
                 Regístrate
               </NavLink>
             </li>
