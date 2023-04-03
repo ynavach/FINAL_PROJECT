@@ -45,6 +45,14 @@ export const Signup = () => {
 					},
 					body: JSON.stringify(bodyUser)
 				})
+				if (response.status == 201) {
+					alert("Se ha registrado su usuario satisfactoriamente");
+					navigate("/login");
+				}else{
+					alert("Se produjo un error al crear su cuenta");
+					throw new Error (response.status);
+				}
+				
 			}
 			catch(error){
 				console.log(error)
@@ -56,10 +64,16 @@ export const Signup = () => {
 
 	}
 	return (
-		<div className="container mt-5">
-			<form className="col-4 p-5 border border-dark rounded-4">
+		<div className="container d-flex align-items-center justify-content-center flex-column"style={{minHeight:"99vh"}}>
+			<form className="col-4 p-5">
+				<div className="d-flex flex-column align-items-center">
+					<h2>
+						Registro de Cuenta
+					</h2>
+					<img className="mb-4 mt-1" src="https://www.iconpacks.net/icons/2/free-user-signup-icon-3058-thumb.png" alt="JWT Auth Logo" width="100" height="100" style={{objectFit:"contain"}}/>
+				</div>
 				<div className="d-flex justify-content-between"> 
-					<div className="mb-3">
+					<div className="mb-3 me-3">
 						<label htmlFor="userName" className="form-label" >Nombre</label>
 						<input type="text" className="form-control" id="userName"  onChange={e=>setUserName(e.target.value)} />
 					</div>
@@ -69,18 +83,20 @@ export const Signup = () => {
 					</div>
 				</div>
 				<div className="mb-3">
-					<label htmlFor="userPhone" className="form-label" >Numero de telefono</label>
+					<label htmlFor="userPhone" className="form-label" >Número de teléfono</label>
 					<input type="text" className="form-control" id="userPhone"  onChange={e=>setUserPhone(e.target.value)}/>
 				</div>
 				<div className="mb-3">
-					<label htmlFor="exampleInputEmail1" className="form-label" >Email address</label>
+					<label htmlFor="exampleInputEmail1" className="form-label" >Correo Electrónico</label>
 					<input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={e=>setUserEmail(e.target.value)}/>				
 				</div>
 				<div className="mb-3">
 					<label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
 					<input type="password" className="form-control" id="exampleInputPassword1" onChange={e=>setUserPass(e.target.value)}/>
 				</div>
-				<button type="" className="btn btn-primary" onClick={e=>createUser()}>Crear</button>
+				<div className="d-flex flex-column align-items-center">
+					<button type="" className="btn text-white" style={{backgroundColor:"#AB46D2"}} onClick={e=>createUser()}>Crear Cuenta</button>
+				</div>
 			</form>
 		</div>
 	);
