@@ -64,40 +64,43 @@ export const Signup = () => {
 
 	}
 	return (
-		<div className="container d-flex align-items-center justify-content-center flex-column"style={{minHeight:"99vh"}}>
-			<form className="col-4 p-5">
-				<div className="d-flex flex-column align-items-center">
-					<h2>
-						Registro de Cuenta
-					</h2>
-					<img className="mb-4 mt-1" src="https://www.iconpacks.net/icons/2/free-user-signup-icon-3058-thumb.png" alt="JWT Auth Logo" width="100" height="100" style={{objectFit:"contain"}}/>
-				</div>
-				<div className="d-flex justify-content-between"> 
-					<div className="mb-3 me-3">
-						<label htmlFor="userName" className="form-label" >Nombre</label>
-						<input type="text" className="form-control" id="userName"  onChange={e=>setUserName(e.target.value)} />
+		<div >
+			<div className="container d-flex align-items-center justify-content-center signup-css">
+				<form className="col-4 p-5 bg-light  signup-form">
+					<div className="d-flex flex-column align-items-center">
+						<h2>
+							Registro de Cuenta
+						</h2>			
+					</div>
+					<div className="d-flex justify-content-between"> 
+						<div className="mb-3 me-3">
+							<label htmlFor="userName" className="form-label" >Nombre</label>
+							<input type="text" className="form-control" id="userName"  onChange={e=>setUserName(e.target.value)} />
+						</div>
+						<div className="mb-3">
+							<label htmlFor="userLastName" className="form-label" >Apellido</label>
+							<input type="text" className="form-control" id="userLastName"  onChange={e=>setUserLastName(e.target.value)}/>
+						</div>
 					</div>
 					<div className="mb-3">
-						<label htmlFor="userLastName" className="form-label" >Apellido</label>
-						<input type="text" className="form-control" id="userLastName"  onChange={e=>setUserLastName(e.target.value)}/>
+						<label htmlFor="userPhone" className="form-label" >Número de teléfono</label>
+						<input type="text" className="form-control" id="userPhone"  onChange={e=>setUserPhone(e.target.value)}/>
 					</div>
-				</div>
-				<div className="mb-3">
-					<label htmlFor="userPhone" className="form-label" >Número de teléfono</label>
-					<input type="text" className="form-control" id="userPhone"  onChange={e=>setUserPhone(e.target.value)}/>
-				</div>
-				<div className="mb-3">
-					<label htmlFor="exampleInputEmail1" className="form-label" >Correo Electrónico</label>
-					<input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={e=>setUserEmail(e.target.value)}/>				
-				</div>
-				<div className="mb-3">
-					<label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
-					<input type="password" className="form-control" id="exampleInputPassword1" onChange={e=>setUserPass(e.target.value)}/>
-				</div>
-				<div className="d-flex flex-column align-items-center">
-					<button type="" className="btn text-white" style={{backgroundColor:"#AB46D2"}} onClick={e=>createUser()}>Crear Cuenta</button>
-				</div>
-			</form>
+					<div className="mb-3">
+						<label htmlFor="exampleInputEmail1" className="form-label" >Correo Electrónico</label>
+						<input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={e=>setUserEmail(e.target.value)}/>				
+					</div>
+					<div className="mb-3">
+						<label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
+						<input type="password" className="form-control" id="exampleInputPassword1" onChange={e=>setUserPass(e.target.value)}/>
+					</div>
+					<div className="d-flex flex-column align-items-center">
+						<button type="" className="btn text-white" style={{backgroundColor:"#AB46D2"}} onClick={e=>createUser()}>Crear Cuenta</button>
+					</div>
+				</form>
+				<img className=" image-form" src="https://www.xtrafondos.com/wallpapers/vertical/perro-en-el-pasto-5797.jpg" alt="JWT Auth Logo"  style={{objectFit:"contain"}}/>
+			</div>
+
 		</div>
 	);
 };

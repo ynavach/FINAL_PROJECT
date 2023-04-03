@@ -11,4 +11,24 @@ i.fa {
     box-shadow: 0px 0px 2px #888;
     padding: 0.5em 0.6em;
   
-  }
+}
+
+.signup-css{
+    background-color: #AB46D2;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(103, 58, 183, 0.7);
+    padding: 50px 0px 50px 0px;
+    height: 600px;
+  
+}
+
+.signup-form{
+    border-radius: 20px 0px 0px 20px;
+}
+
+.image-form{
+    border-radius: 0px 20px 20px 0px;
+    height: 522px;
+}
