@@ -41,22 +41,22 @@ export const Navbar = () => {
         <div style={{ paddingLeft: "250px" }}>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink exact to="/" className="nav-link" activeClassName="active" style={{ color: "#333333", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
-                Inicio
-              </NavLink>
+            <NavLink exact="true" to="/" className="nav-link" activeclassname="active" style={{ color: "#333333", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
+              Inicio
+            </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/about" className="nav-link" activeClassName="active" style={{ color: "#333333", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
+              <NavLink to="/about" className="nav-link" activeclassname="active" style={{ color: "#333333", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
                 Quiénes somos
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/services" className="nav-link" activeClassName="active" style={{ color: "#333333", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
+              <NavLink to="/services" className="nav-link" activeclassname="active" style={{ color: "#333333", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
                 Servicios
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/gallery" className="nav-link" activeClassName="active" style={{ color: "#333333", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
+              <NavLink to="/gallery" className="nav-link" activeclassname="active" style={{ color: "#333333", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
                 Galería
               </NavLink>
             </li>
@@ -66,12 +66,12 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarRight">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink to="/signup" className="nav-link" activeClassName="active" style={{ color: "#F4378D", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
+              <NavLink to="/register" className="nav-link" activeclassname="active" style={{ color: "#F4378D", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
                 Regístrate
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/login" className="nav-link" activeClassName="active" style={{ color: "#5F0683", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
+              <NavLink to="/login" className="nav-link" activeclassname="active" style={{ color: "#5F0683", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
                 Mi Cuenta
               </NavLink>
             </li>
