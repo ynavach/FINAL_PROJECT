@@ -8,19 +8,15 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from bcrypt import gensalt
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 
-
-
-
 api = Blueprint('api', __name__)
-
 
 @api.route('/signup', methods=['POST'])
 def handle_signup():
     data = request.json
     email = User.query.filter_by(email=data['email']).one_or_none()
-    phone = User.query.filter_by(phone=data['phone_number']).one_or_none()
+    phone = User.query.filter_by(phone_number=data['phone_number']).one_or_none()
     if request.method == 'POST':
-        if email is None or phone is None: 
+        if email is not None or phone is not None: 
             return jsonify({
             "error": "usuario existente"
             }), 400
@@ -39,7 +35,6 @@ def handle_signup():
             db.session.commit()
             return jsonify(data), 201
     
-
 @api.route('/login', methods=['POST'])
 def handle_login():
     data = request.json

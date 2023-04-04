@@ -10,7 +10,7 @@ class User(db.Model):
     phone_number = db.Column(db.String(120), unique=False, nullable=False)
     salt = db.Column(db.String(500), unique=True, nullable=False)
     hashed_password = db.Column(db.String(500), unique=False, nullable=False)
-    medic = db.Column(db.Boolean, unique=True, nullable=False)
+    medic = db.Column(db.Boolean, unique=False, nullable=False)
 
     def _repr_(self):
         return f'<User {self.email}>'
