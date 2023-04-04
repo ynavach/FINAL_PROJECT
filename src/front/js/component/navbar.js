@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 import logoblancoUrl from "../../img/logoblanco.png";
 
 export const Navbar = () => {
+  const { actions, store } = useContext(Context)
+
   return (
     <nav className="navbar navbar-expand-lg fixed-top" style={{ backgroundColor: "#AB46D2", height: "60px", margin: "0 auto" }}>
-      <div className="container-fluid">
+      <div className="container-fluid d-flex justify-content-between">
         <Link to="/" className="navbar-brand">
           <img
             src={logoblancoUrl}
@@ -14,14 +17,10 @@ export const Navbar = () => {
           />
         </Link>
 
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse justify-content-center" id="navbarCenter">
+        <div className="justify-content-center" id="navbarCenter">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/" className="nav-link" style={{ paddingLeft: "200px", color: "#FFFFFF" }}>Inicio</Link>
+              <Link to="/" className="nav-link" style={{ color: "#FFFFFF" }}>Inicio</Link>
             </li>
             <li className="nav-item">
               <Link to="/about" className="nav-link" style={{ color: "#FFFFFF" }}>Quiénes Somos</Link>
@@ -35,13 +34,27 @@ export const Navbar = () => {
           </ul>
         </div>
 
-        <div className="collapse navbar-collapse justify-content-end" id="navbarRight">
+        <div className="justify-content-end" id="navbarRight">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/signup" className="nav-link" style={{ color: "#FFFFFF" }}>Regístrate</Link>
+              {
+                !store.jwt_token ?
+                  <Link to="/signup" className="nav-link" style={{ color: "#FFFFFF" }}>Regístrate</Link>
+                :
+                  <Link to="/profile" className="nav-link" style={{ color: "#FFFFFF" }}>Mi Perfil</Link>
+              }           
             </li>
             <li className="nav-item">
-              <Link to="/login" className="nav-link" style={{ color: "#FFFFFF" }}>Acceso</Link>
+              {
+                !store.jwt_token ?
+                  <Link to="/login">
+                    <button className="btn btn-light" style={{ color: "#AB46D2", fontWeight: "bold"}}>Iniciar Sesión</button>
+                  </Link>
+                :
+                  <Link to="/login">
+                    <button onClick={actions.removeToken} className="btn btn-light" style={{ color: "#AB46D2", fontWeight: "bold"}}>Cerrar Sesión</button>
+                  </Link>
+              }
             </li>
           </ul>
         </div>
