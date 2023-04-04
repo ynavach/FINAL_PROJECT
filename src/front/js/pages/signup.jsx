@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext";
@@ -10,8 +11,7 @@ export const Signup = () => {
 	const [userName, setUserName] = useState();
 	const [userLastName, setUserLastName] = useState();
 	const [userPhone, setUserPhone] = useState();
-
-
+	const navigate = useNavigate();
 
 	const verifyInput=(email,pass,name,last,phone)=>{
 		if ((email == undefined)||(pass== undefined)||(name== undefined)||(last== undefined)||(phone== undefined)){
@@ -24,8 +24,8 @@ export const Signup = () => {
 		}
 	}
 
-	const createUser= async()=>{
-		
+	const createUser= async(event)=>{
+		event.preventDefault();
 		let bodyUser= {
 			"email": userEmail,
 			"password": userPass,
@@ -95,7 +95,7 @@ export const Signup = () => {
 					<input type="password" className="form-control" id="exampleInputPassword1" onChange={e=>setUserPass(e.target.value)}/>
 				</div>
 				<div className="d-flex flex-column align-items-center">
-					<button type="" className="btn text-white" style={{backgroundColor:"#AB46D2"}} onClick={e=>createUser()}>Crear Cuenta</button>
+					<button type="" className="btn text-white" style={{backgroundColor:"#AB46D2"}} onClick={createUser}>Crear Cuenta</button>
 				</div>
 			</form>
 		</div>
