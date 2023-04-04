@@ -1,64 +1,36 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import logohuellasUrl from "../../img/logohuellaspc.png";
+import { Link } from "react-router-dom";
+import logoblancoUrl from "../../img/logoblanco.png";
 
 export const Navbar = () => {
   return (
-    <nav
-      className="navbar navbar-expand-lg navbar-light"
-      style={{
-        backgroundColor: "#f7f7f7",
-        height: "70px",
-        borderBottom: "5px solid black",
-        position: "fixed",
-        top: "0",
-        width: "100%",
-        zIndex: "1",
-        borderRadius: "10px"
-      }}
-    >
+    <nav className="navbar navbar-expand-lg fixed-top" style={{ backgroundColor: "#AB46D2", height: "60px", margin: "0 auto" }}>
       <div className="container-fluid">
         <Link to="/" className="navbar-brand">
           <img
-            src={logohuellasUrl}
+            src={logoblancoUrl}
             alt="Huellas PetCare"
-            style={{ height: "200px", width: "200px", objectFit: "contain" }}
+            style={{ height: "150px", width: "150px", objectFit: "contain" }}
           />
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
 
         <div className="collapse navbar-collapse justify-content-center" id="navbarCenter">
-        <div style={{ paddingLeft: "250px" }}>
           <ul className="navbar-nav">
             <li className="nav-item">
-            <NavLink exact="true" to="/" className="nav-link" activeclassname="active" style={{ color: "#333333", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
-              Inicio
-            </NavLink>
+              <Link to="/" className="nav-link" style={{ paddingLeft: "200px", color: "#FFFFFF" }}>Inicio</Link>
             </li>
             <li className="nav-item">
-              <NavLink to="/about" className="nav-link" activeclassname="active" style={{ color: "#333333", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
-                Quiénes somos
-              </NavLink>
+              <Link to="/about" className="nav-link" style={{ color: "#FFFFFF" }}>Quiénes Somos</Link>
             </li>
             <li className="nav-item">
-              <NavLink to="/services" className="nav-link" activeclassname="active" style={{ color: "#333333", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
-                Servicios
-              </NavLink>
+              <Link to="/services" className="nav-link" style={{ color: "#FFFFFF" }}>Servicios</Link>
             </li>
             <li className="nav-item">
-              <NavLink to="/gallery" className="nav-link" activeclassname="active" style={{ color: "#333333", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
-                Galería
-              </NavLink>
+              <Link to="/gallery" className="nav-link" style={{ color: "#FFFFFF" }}>Galeria</Link>
             </li>
           </ul>
         </div>
@@ -66,17 +38,12 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarRight">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink to="/signup" className="nav-link" activeclassname="active" style={{ color: "#F4378D", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
-                Regístrate
-              </NavLink>
+              <Link to="/signup" className="nav-link" style={{ color: "#FFFFFF" }}>Regístrate</Link>
             </li>
             <li className="nav-item">
-              <NavLink to="/login" className="nav-link" activeclassname="active" style={{ color: "#5F0683", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "1px" }}>
-                Mi Cuenta
-              </NavLink>
+              <Link to="/login" className="nav-link" style={{ color: "#FFFFFF" }}>Acceso</Link>
             </li>
           </ul>
-        </div>
         </div>
       </div>
     </nav>
