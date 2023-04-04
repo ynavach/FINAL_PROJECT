@@ -1,10 +1,23 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import {Pets} from "../pages/pets.jsx"
+import {My_Services} from "../pages/myServices.jsx"
 import { Context } from "../store/appContext";
 
 
 export const My_account=()=>{
     const { store, actions } = useContext(Context)
+    const [view , setView] = useState(0)
+
+    const LoadPage=(num)=>{
+
+        setView(num)
+
+
+    }
+
+
+
     useEffect(() => {
         actions.getProfile()
     }, [store.jwt_token]);
@@ -34,14 +47,16 @@ export const My_account=()=>{
                     }
                     </div>
                     <div className="flex-fill border-bottom"> 
-                        <button>MIS MASCOTAS</button> 
+                        <button  onClick={e=>LoadPage(1)}>MIS MASCOTAS </button> 
                     </div>
                     <div className="flex-fill">
-                        <button>SERVICIOS AGENDADOS</button>
+                        <button onClick={e=>LoadPage(2)}>SERVICIOS AGENDADOS</button>
                     </div>
                 </div>
                 <div className="border border-dark flex-fill">
-                    <p>elem 2 </p>
+                    {
+                        view == 0 ? (<p>elem 2 </p>) : view == 1 ?  <Pets/> : <My_Services/>
+                    }
                 </div>
             </div>           
 
