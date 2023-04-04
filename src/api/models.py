@@ -9,7 +9,9 @@ class Pets(db.Model):
     gender = db.Column(db.String(80), unique=False, nullable=False)
     race = db.Column(db.String(80), unique=False, nullable=False)
     photo = db.Column(db.String(80), unique=False, nullable=True)
-    owner = db.Column(db.ForeignKey('user.id'))  
+    owner_id = db.Column(db.ForeignKey('user.id'))  
+    owner = db.relationship('User',back_populates="pets")
+
     def _repr_(self):
         return f'<Pets {self.name}>'
     
@@ -33,7 +35,7 @@ class User(db.Model):
     salt = db.Column(db.String(500), unique=True, nullable=False)
     hashed_password = db.Column(db.String(500), unique=False, nullable=False)
     medic = db.Column(db.Boolean, unique=False, nullable=False)
-    Pets = db.relationship('Pets')
+    pets = db.relationship('Pets',back_populates="owner")
 
     def _repr_(self):
         return f'<User {self.email}>'
