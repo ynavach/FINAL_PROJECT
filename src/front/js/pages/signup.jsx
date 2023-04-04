@@ -86,23 +86,21 @@ export const Signup = () => {
 						<label htmlFor="userPhone" className="form-label" >Número de teléfono</label>
 						<input type="text" className="form-control" id="userPhone"  onChange={e=>setUserPhone(e.target.value)}/>
 					</div>
-				</div>
-				<div className="mb-3">
-					<label htmlFor="userPhone" className="form-label" >Número de teléfono</label>
-					<input type="text" className="form-control" id="userPhone"  onChange={e=>setUserPhone(e.target.value)}/>
-				</div>
-				<div className="mb-3">
-					<label htmlFor="exampleInputEmail1" className="form-label" >Correo Electrónico</label>
-					<input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={e=>setUserEmail(e.target.value)}/>				
-				</div>
-				<div className="mb-3">
-					<label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
-					<input type="password" className="form-control" id="exampleInputPassword1" onChange={e=>setUserPass(e.target.value)}/>
-				</div>
-				<div className="d-flex flex-column align-items-center">
-					<button type="" className="btn text-white" style={{backgroundColor:"#AB46D2"}} onClick={createUser}>Crear Cuenta</button>
-				</div>
-			</form>
+					<div className="mb-3">
+						<label htmlFor="exampleInputEmail1" className="form-label" >Correo Electrónico</label>
+						<input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={e=>setUserEmail(e.target.value)}/>				
+					</div>
+					<div className="mb-3">
+						<label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
+						<input type="password" className="form-control" id="exampleInputPassword1" onChange={e=>setUserPass(e.target.value)}/>
+					</div>
+					<div className="d-flex flex-column align-items-center">
+						<button type="" className="btn text-white" style={{backgroundColor:"#AB46D2"}} onClick={createUser}>Crear Cuenta</button>
+					</div>
+				</form>
+				<img className=" image-form" src="https://www.xtrafondos.com/wallpapers/vertical/perro-en-el-pasto-5797.jpg" alt="JWT Auth Logo"  style={{objectFit:"contain"}}/>
+			</div>
+
 		</div>
 	);
 };
