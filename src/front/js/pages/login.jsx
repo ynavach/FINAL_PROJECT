@@ -46,7 +46,7 @@ export function LoginPage () {
     }
 
     return (
-        <div className="d-flex align-items-center justify-content-center flex-column" style={{minHeight:"100vh"}}>
+        <div className="d-flex align-items-center justify-content-center flex-column" >
             <div className="container login-ccs d-flex align-items-center justify-content-center flex-row">
                 <img className="login-img" src="https://img.freepik.com/free-photo/selective-kitten-stand-with-hanging-fluffy-ball_181624-57269.jpg?w=360&t=st=1680628846~exp=1680629446~hmac=21e4216930a15352f4094d15a6a90876d275a0f4ffa73fcd98dfda418871f2c5" alt="IMG Login"/>
                 <form onSubmit={handleSubmit} className="login-form p-5 bg-light d-flex align-items-center justify-content-center flex-column">
