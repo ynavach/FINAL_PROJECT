@@ -14,7 +14,7 @@ i.fa {
 
 .signup-css{
     background-color: #AB46D2;
-    margin-top: 100px;
+    margin-top: 100px; 
     margin-bottom: 100px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(103, 58, 183, 0.7);
@@ -33,4 +33,12 @@ i.fa {
 .image-form{
     border-radius: 0px 20px 20px 0px;
     height: 522px;
+}
+
+.my-account-css{
+    margin-top: 100px; 
+    margin-bottom: 100px;
+    border-radius: 20px;
+    height: 600px;  
+
 }
