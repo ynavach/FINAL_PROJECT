@@ -2,16 +2,12 @@ import React, { Component } from "react";
 import "../../styles/home.css";
 
 export const Footer = () => (
-	<nav className="navbar navbar-expand-lg sticky-bottom" style={{backgroundColor:"#AB46D2"}}>
-	  <div className="container-fluid">
-		<a className="navbar-brand  position-relative top-50 start-0 ms-5 ps-5" style={{color:"#FFFFFF"}} >Copyright Your <code>&#169;</code> website 2023</a>
+	<footer className="footer py-3 d-flex align-items-center justify-content-center sticky-bottom" style={{minHeight:"5vh", backgroundColor:"#AB46D2"}}>
+		<p className="d-flex align-items-center justify-content-center text-white m-0 me-3">Copyright © 2023 Huellas PetCare Website</p>
 		<div className="social-links">
-		<i className= "fa-brands fa-facebook me-2 text-light  fa-2x fa-lg"></i>
-		<i className= "fa-brands fa-instagram me-2 text-light  fa-2x fa-lg"></i>
-		<i className= "fa-brands fa-linkedin me-5 pe-5 text-light fa-2x fa-lg"></i>
+			<i className= "fa-brands fa-facebook me-2 text-light  fa-2x fa-lg"></i>
+			<i className= "fa-brands fa-instagram me-2 text-light  fa-2x fa-lg"></i>
+			<i className= "fa-brands fa-linkedin me-5 pe-5 text-light fa-2x fa-lg"></i>
 		</div>
-	  </div>
-	  </nav>
-	  );
-
-
+    </footer>
+	);
