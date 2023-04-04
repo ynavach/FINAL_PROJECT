@@ -42,8 +42,8 @@ const Services = () => {
             </Col>
           </Row>
         </div>
-        <Row>
-          <Col md={4}>
+        <Row className="justify-content-center">
+          <Col md={4} xs={12} className="mb-4">
             <Card
               style={{
                 height: "100%",
@@ -74,7 +74,7 @@ const Services = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col md={4}>
+        <Col md={4} xs={12}>
           <Card
             style={{
               height: "100%",
@@ -105,7 +105,7 @@ const Services = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col md={4}>
+        <Col md={4} xs={12}>
           <Card
             style={{
               height: "100%",
@@ -135,7 +135,7 @@ const Services = () => {
         </Col>
         </Row>
         <Row style={{marginTop: "50px", marginBottom: "80px"}}>
-        <Col md={4}>
+        <Col md={4} xs={12}>
         <Card style={{
               height: "100%",
               boxShadow: hoveredCard === 3 ? "0 0 10px rgba(0, 0, 139, 0.7)" : "",
@@ -158,7 +158,7 @@ const Services = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col md={4}>
+        <Col md={4} xs={12}>
         <Card style={{
               height: "100%",
               boxShadow: hoveredCard === 4 ? "0 0 10px rgba(0, 0, 139, 0.7)" : "",
@@ -181,7 +181,7 @@ const Services = () => {
           </Card.Body>
         </Card>
       </Col>
-      <Col md={4}>
+      <Col md={4} xs={12}>
       <Card style={{
               height: "100%",
               boxShadow: hoveredCard === 5 ? "0 0 10px rgba(0, 0, 139, 0.7)" : "",
