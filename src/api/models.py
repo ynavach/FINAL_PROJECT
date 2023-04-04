@@ -8,6 +8,7 @@ class Pets(db.Model):
     age = db.Column(db.String(2),unique=False, nullable=False )
     gender = db.Column(db.String(80), unique=False, nullable=False)
     race = db.Column(db.String(80), unique=False, nullable=False)
+    species = db.Column(db.String(80), unique=False, nullable=True)
     photo = db.Column(db.String(80), unique=False, nullable=True)
     owner_id = db.Column(db.ForeignKey('user.id'))  
     owner = db.relationship('User',back_populates="pets")
@@ -22,8 +23,10 @@ class Pets(db.Model):
             "age": self.age,
             "gender": self.gender,
             "race": self.race,
+            "species" : self.species,
             "photo": self.phot,
-            "owner": self.owner
+            "owner": self.owner,
+            "owner_id":self.owner_id
         }
 
 class User(db.Model):
@@ -47,6 +50,7 @@ class User(db.Model):
             "name": self.name,
             "last_name": self.last_name,
             "phone_number": self.phone_number,
-            "medic":self.medic
+            "medic": self.medic,
+            "pets": self.pets
         }
 
