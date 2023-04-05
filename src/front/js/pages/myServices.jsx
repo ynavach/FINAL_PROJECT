@@ -5,17 +5,8 @@ import { Context } from "../store/appContext";
 
 export const My_Services=()=>{
     const { store, actions } = useContext(Context)
-    const view=1
 
 
-
-
-
-    useEffect(() => {
-        actions.getProfile()
-    }, [store.jwt_token]);
-
-    
 
 
 
