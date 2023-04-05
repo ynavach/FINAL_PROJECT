@@ -51,6 +51,5 @@ class User(db.Model):
             "last_name": self.last_name,
             "phone_number": self.phone_number,
             "medic": self.medic,
-            "pets": self.pets
         }
 
