@@ -52,7 +52,7 @@ const Services = () => {
           <Col md={4} xs={12} className="mb-4">
             <Card
               style={{
-                height: "100%",
+                height: "106%",
                 boxShadow:
                   hoveredCard === 0 ? "0 0 10px rgba(103, 58, 183, 0.7)" : "",
               }}
