@@ -45,6 +45,20 @@ export const Pets=()=>{
             "owner": store.user.id
         }
         if (verifyInput(petAge, petRace, petName, petGender, petSpecies)) {
+
+            try{
+
+            }
+            catch(error){
+                
+            }
+
+
+
+
+
+
+
             console.log(store.user)
             console.log(bodyPet)
             console.log("todo ok")
