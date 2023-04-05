@@ -6,7 +6,7 @@ import cirugiaUrl from "../../img/cirugia.png";
 import peluqueriaUrl from "../../img/peluqueria.png";
 import desparasitacionUrl from "../../img/desparasitacion.png";
 import emergenciaUrl from "../../img/emergencia.png";
-import fondoservUrl from "../../img/fondoserv.png";
+import fondoserv2Url from "../../img/fondoserv2.png";
 
 const Services = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -21,27 +21,33 @@ const Services = () => {
 
   return (
     <div style={{ position: "relative" }}>
-      <img
-        src={fondoservUrl}
-        alt="Fondo de servicios"
-        style={{ width: "100%", position: "relative" }}
-      />
       <Container style={{ marginTop: "100px" }}>
-        <h1 className="mb-5 mt-5">Servicios</h1>
-        <div className="fusion-column col-lg-5 col-md-5 col-sm-5" style={{ marginTop: "50px", marginBottom: "50px" }}>
-          <p>
-            Tenemos a disposición un equipo de expertos en Medicina Veterinaria y personal técnico altamente cualificado, con una vasta experiencia y comprometidos con nuestra misión de ofrecer cuidado de la salud a todas las especies de animales de compañía, a través de diagnósticos precisos y tratamientos efectivos. Además, nos enorgullece proveer la mejor atención posible mediante un equipo de profesionales altamente capacitados, que se mantienen actualizados y utilizan la tecnología más adecuada a nuestra disposición.
-          </p>
-          <ul>
-            <li>Consultas de Lunes a Domingos de 8am a 4pm</li>
-            <li>Emergencias las 24 horas</li>
-          </ul>
-          <Row className="mt-4">
-            <Col className="text-center">
-              <Button variant="primary" size="lg" style={{ backgroundColor: "#4B0082", borderRadius: "50px" }}>Reserva ahora</Button>
-            </Col>
-          </Row>
-        </div>
+        <Row>
+          <Col md={6}>
+            <h1 className="mb-5 mt-5">Servicios</h1>
+            <div className="fusion-column col-lg-12 col-md-12 col-sm-12" style={{ marginTop: "50px", marginBottom: "50px" }}>
+              <p>
+                Tenemos a disposición un equipo de expertos en Medicina Veterinaria y personal técnico altamente cualificado, con una vasta experiencia y comprometidos con nuestra misión de ofrecer cuidado de la salud a todas las especies de animales de compañía, a través de diagnósticos precisos y tratamientos efectivos. Además, nos enorgullece proveer la mejor atención posible mediante un equipo de profesionales altamente capacitados, que se mantienen actualizados y utilizan la tecnología más adecuada a nuestra disposición.
+              </p>
+              <ul>
+                <li>Consultas de Lunes a Domingos de 8am a 4pm</li>
+                <li>Emergencias las 24 horas</li>
+              </ul>
+              <Row className="mt-4">
+                <Col className="text-center">
+                  <Button variant="primary" size="lg" style={{ backgroundColor: "#ab46d2", borderRadius: "50px" }}>Reserva ahora</Button>
+                </Col>
+              </Row>
+            </div>
+          </Col>
+          <Col md={6}>
+            <img
+              src={fondoserv2Url}
+              alt="Fondo de servicios"
+              style={{ width: "120%", position: "relative" }}
+            />
+          </Col>
+        </Row>
         <Row className="justify-content-center">
           <Col md={4} xs={12} className="mb-4">
             <Card
