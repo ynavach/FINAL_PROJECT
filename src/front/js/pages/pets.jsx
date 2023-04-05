@@ -33,7 +33,7 @@ export const Pets=()=>{
         }
     };
 
-    const uploadPetInfo=(event)=>{
+    const uploadPetInfo= async(event)=>{
         event.preventDefault();
         
         const bodyPet={
@@ -47,10 +47,22 @@ export const Pets=()=>{
         if (verifyInput(petAge, petRace, petName, petGender, petSpecies)) {
 
             try{
-
+                const response= await fetch(process.env.BACKEND_URL + "/api/my_account/pets",{
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(bodyPet)
+                });
+                if (response.status == 201) {
+                    alert("Se ha agregado satisfactoriamente la mascota");                
+                } else {
+                    alert("Se produjo un error al agregar su mascota");
+                    throw new Error(response.status);
+                }
             }
             catch(error){
-                
+                console.log(error);
             }
 
 
