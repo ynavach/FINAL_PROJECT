@@ -5,6 +5,9 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
+
+
 i.fa {
     display: inline-block;
     border-radius: 60px;
