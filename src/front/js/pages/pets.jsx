@@ -7,7 +7,7 @@ import logoblancoUrl from "../../img/logoblanco.png";
 
 export const Pets=()=>{
     const { store, actions } = useContext(Context)
-    const [view , setView] = useState(1)
+    const [view , setView] = useState(0)
     const [petName , getPetName] = useState()
     const [petAge , getPetAge] = useState()
     const [petRace, getPetRace] = useState()
@@ -42,15 +42,17 @@ export const Pets=()=>{
             "race": petRace,
             "gender":petGender,
             "species":petSpecies,
-            "owner": store.user.id
+            "photo": "url"
         }
         if (verifyInput(petAge, petRace, petName, petGender, petSpecies)) {
 
             try{
-                const response= await fetch(process.env.BACKEND_URL + "/api/my_account/pets",{
+                const response= await fetch(process.env.BACKEND_URL + "/api/pets",{
+
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
+                        "Authorization": `Bearer ${store.jwt_token}`
                     },
                     body: JSON.stringify(bodyPet)
                 });
