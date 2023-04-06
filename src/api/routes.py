@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Pets
 from api.utils import generate_sitemap, APIException
 from flask_migrate import Migrate
 from flask_swagger import swagger
@@ -34,7 +34,7 @@ def handle_signup():
             db.session.add(new_user)
             db.session.commit()
             return jsonify(data), 201
-    
+
 @api.route('/login', methods=['POST'])
 def handle_login():
     data = request.json
@@ -64,3 +64,23 @@ def handle_private():
     return jsonify({
         "user": user.serialize()
     }), 200
+
+
+@api.route('/pets' , methods = ['POST'])
+@jwt_required()
+def handle_create_pets():
+    data = request.json
+    user_id = get_jwt_identity()
+    new_pet = Pets()
+    new_pet.name = data['name']
+    new_pet.age = data['age']
+    new_pet.gender = data['gender']
+    new_pet.species = data['species']
+    new_pet.race = data['race']
+    new_pet.photo = data['photo']
+    new_pet.owner_id = user_id
+    db.session.add(new_pet)
+    db.session.commit()
+    return jsonify(data), 201
+
+

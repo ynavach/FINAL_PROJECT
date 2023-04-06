@@ -24,8 +24,7 @@ class Pets(db.Model):
             "gender": self.gender,
             "race": self.race,
             "species" : self.species,
-            "photo": self.phot,
-            "owner": self.owner,
+            "photo": self.photo,           
             "owner_id":self.owner_id
         }
 
@@ -43,7 +42,14 @@ class User(db.Model):
     def _repr_(self):
         return f'<User {self.email}>'
 
-    def serialize(self):
+    def serialize(self):   
+        print( {"id": self.id,
+            "email": self.email,
+            "name": self.name,
+            "last_name": self.last_name,
+            "phone_number": self.phone_number,
+            "medic": self.medic,
+            "pets": [pet.serialize() for pet in self.pets]})     
         return {
             "id": self.id,
             "email": self.email,
@@ -51,5 +57,6 @@ class User(db.Model):
             "last_name": self.last_name,
             "phone_number": self.phone_number,
             "medic": self.medic,
+            "pets": [pet.serialize() for pet in self.pets]
         }
 
