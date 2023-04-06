@@ -10,6 +10,7 @@ import consultaUrl from "../../img/consulta.png";
 import cirugiaUrl from "../../img/cirugia.png";
 import emergenciaUrl from "../../img/emergencia.png";
 import peluqueriaUrl from "../../img/peluqueria.png";
+import vacunacionUrl from "../../img/vacunacion.png";
 import mascotas3 from "../../img/mascotas3.jpg";
 import services from "../component/services.jsx";
 
@@ -124,6 +125,21 @@ export const Home = () => {
 					<div className="col-sm-2 ">
 						<div className="card">
 							<div className="card-body">
+							<img
+								src={vacunacionUrl}
+								style={{ display: "block", margin: "auto", marginTop: "20px", marginBottom: "25px" }}
+								width="100"
+								height="100"
+								alt="Foto de Consulta"
+							/>
+ 								<h5 className="card-title">Vacunación</h5>
+								<p className="card-text"></p>
+							</div>
+						</div>
+					</div>
+					<div className="col-sm-2 ">
+						<div className="card">
+							<div className="card-body">
 								<img src={emergenciaUrl}  style={{ display: 'block', margin: 'auto' }} width="120" height="150" alt="Foto de Consulta" />
 								<h5 className="card-title">Emergencias</h5>
 								<p className="card-text"></p>
@@ -132,9 +148,9 @@ export const Home = () => {
 					</div>
 				</div>
 			</div>
-				<Link to="/services">
+				<Link to="/signup">
 					<span className="btn btn-primary btn-lg rounded-pill justify-content-center " style={{backgroundColor:"#FF6FB5"}} href={"About"} role="button"
-					>Ver más</span>
+					>Regístrate</span>
 				</Link>
 			</div>
 
