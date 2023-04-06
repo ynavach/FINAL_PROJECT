@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 export function LoginPage () {
 
@@ -26,7 +28,8 @@ export function LoginPage () {
                 }
             })
             if (response.status == 200) {
-                alert("Se ha iniciado sesión satisfactoriamente");
+                /* alert("Se ha iniciado sesión satisfactoriamente"); */
+                toast.success('Se ha iniciado sesión correctamente');
                 const body = await response.json();
                 console.log(body);
                 actions.setToken(body.jwt_token);
@@ -67,6 +70,7 @@ export function LoginPage () {
                     </div>
                 </form>
             </div>
+            <Toaster />
         </div>
     )
 }
