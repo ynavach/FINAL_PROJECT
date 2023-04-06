@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import tiye from "../../img/tj.jpg";
 import { Context } from "../store/appContext";
+import toast, { Toaster } from 'react-hot-toast';
 
 export const Signup = () => {
   const { store, actions } = useContext(Context);
@@ -46,21 +47,20 @@ export const Signup = () => {
           body: JSON.stringify(bodyUser),
         });
         if (response.status == 201) {
-          alert("Se ha registrado su usuario satisfactoriamente");
+          toast.success("Usuario registrado con éxito", {duration:4000});
           navigate("/login");
         } else {
-          alert("Se produjo un error al crear su cuenta");
+          toast.error("Error en el registro de usuario", {duration:4000});
           throw new Error(response.status);
         }
       } catch (error) {
         console.log(error);
       }
     } else {
-      alert(
-        "Ingresar los datos requeridos en el formulario para crear el usuario"
-      );
+      toast.error("Error: Ingrese todos los datos requeridos", {duration:4000});
     }
   };
+  
   return (
     <div className="signup-flow" style={{minHeight:"99vh"}}>
       <div className="container d-flex align-items-center justify-content-center signup-css">
@@ -109,6 +109,7 @@ export const Signup = () => {
         </form>
         <img className=" image-form" src={tiye} alt="JWT Auth Logo" style={{ objectFit: "contain" }}/>
       </div>
+      <Toaster />
     </div>
   );
 };

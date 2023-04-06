@@ -1,3 +1,6 @@
+import React from "react";
+import toast, { Toaster } from 'react-hot-toast';
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -13,6 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			removeToken: () => {
 				localStorage.removeItem("jwt_token");
 				setStore({jwt_token: null});
+				toast.success("Se ha cerrado sesión correctamente", {duration:4000});
+				<Toaster />
 			},
 
 			getProfile: async () => {

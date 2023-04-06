@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 export function LoginPage () {
 
@@ -26,18 +28,17 @@ export function LoginPage () {
                 }
             })
             if (response.status == 200) {
-                alert("Se ha iniciado sesión satisfactoriamente");
                 const body = await response.json();
                 console.log(body);
                 actions.setToken(body.jwt_token);
                 navigate("/profile");
             }
             else if (response.status == 400) {
-                alert("Se produjo un error al iniciar sesión: datos incorrectos");
+                toast.error("Error al iniciar sesión: datos incorrectos", {duration:4000});
                 throw new Error (response.status);
             }
             else {
-                alert("Se produjo un error al iniciar sesión");
+                toast.error("Se produjo un error al iniciar sesión", {duration:4000});
                 throw new Error (response.status);
             }
         } catch (error) {
@@ -67,6 +68,7 @@ export function LoginPage () {
                     </div>
                 </form>
             </div>
+            <Toaster />
         </div>
     )
 }
