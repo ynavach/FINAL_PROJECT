@@ -8,8 +8,8 @@ class Pets(db.Model):
     age = db.Column(db.String(2),unique=False, nullable=False )
     gender = db.Column(db.String(80), unique=False, nullable=False)
     race = db.Column(db.String(80), unique=False, nullable=False)
-    species = db.Column(db.String(80), unique=False, nullable=True)
-    photo = db.Column(db.String(80), unique=False, nullable=True)
+    species = db.Column(db.String(80), unique=False, nullable=False)
+    photo = db.Column(db.String(500), unique=False, nullable=False)
     owner_id = db.Column(db.ForeignKey('user.id'))  
     owner = db.relationship('User',back_populates="pets")
 
