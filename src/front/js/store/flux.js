@@ -31,7 +31,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					if (response.status == 200) {
 						const body = await response.json();
-						console.log(body);
 						setStore({user: body.user});
 					}
 					else {

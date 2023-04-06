@@ -86,7 +86,7 @@ export const Signup = () => {
             <label htmlFor="userPhone" className="form-label">
               Número de teléfono
             </label>
-            <input type="text" className="form-control" id="userPhone" onChange={(e) => setUserPhone(e.target.value)}/>
+            <input type="number" className="form-control" id="userPhone" onChange={(e) => setUserPhone(e.target.value)}/>
           </div>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
