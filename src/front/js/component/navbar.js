@@ -41,7 +41,7 @@ export const Navbar = () => {
                 !store.jwt_token ?
                   <Link to="/signup" className="nav-link" style={{ color: "#FFFFFF" }}>Regístrate</Link>
                 :
-                  <Link to="/profile" className="nav-link" style={{ color: "#FFFFFF" }}>Mi Perfil</Link>
+                  <Link to="/my_account" className="nav-link" style={{ color: "#FFFFFF" }}>Mi Perfil</Link>
               }           
             </li>
             <li className="nav-item">

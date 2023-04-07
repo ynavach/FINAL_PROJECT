@@ -16,7 +16,7 @@ export function LoginPage () {
         const loginData = {
             "email": loginEmail,
             "password": loginPassword,
-          }
+        }
         console.log(loginData)
 
         try {
@@ -31,7 +31,7 @@ export function LoginPage () {
                 const body = await response.json();
                 console.log(body);
                 actions.setToken(body.jwt_token);
-                navigate("/profile");
+                navigate("/my_account");
             }
             else if (response.status == 400) {
                 toast.error("Error al iniciar sesión: datos incorrectos", {duration:4000});
