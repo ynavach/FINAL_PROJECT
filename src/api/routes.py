@@ -97,3 +97,10 @@ def upload_file():
     if file_to_upload:
         upload_result = cloudinary.uploader.upload(file_to_upload)
         return jsonify(upload_result)
+
+@api.route("/delete/<id>",methods=['DELETE'])
+def handle_delete(id):
+    petDelete = Pets.query.get(id)
+    db.session.delete(petDelete)
+    db.session.commit()
+    return "Se ha eliminado con exito su mascota",201
