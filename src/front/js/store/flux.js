@@ -6,6 +6,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			jwt_token: localStorage.getItem("jwt_token"),
 			user: null,	
+			Perro:[
+				"Schnauzer",
+				"Rottweiler",
+				"Golden Retriever",
+				"Gran Danes",
+				"Bull Terrier",
+				"Jack Russell",
+				"Dachshund",
+				"Husky",
+				"Labrador",
+				"Galgo",
+				"Poodle",
+				"otro"
+		],
+			Gato:[
+				"Carey",
+				"Persa",
+				"British Shorthair",
+				"Munchskin",
+				"Bengala",
+				"Angora Turco",
+				"Korat",
+				"Li Dragon",
+				"Siames",
+				"Esfinge",
+				"Americano Pelo Corto",
+				"otro"
+		]
 		},
 		actions: {
 			setToken: (jwt_token) => {
