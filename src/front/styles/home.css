@@ -7,6 +7,12 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 
 i.fa {
     display: inline-block;
@@ -69,5 +75,44 @@ i.fa {
 }
 
 .fondo{
-    background-color: rgba(255, 255, 255, 0.9)
+    background-color:  rgba(171, 70, 210, 0.9);
+    border-radius: 25px;
+}
+
+.slide-in-right {
+	animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.nada{
+    display: none;
+}
+
+.slide-out-right {
+	animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@keyframes slide-out-right {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+}
+
+
+.borde{
+    border-radius: 25px;
 }
