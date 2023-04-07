@@ -113,6 +113,51 @@ i.fa {
 }
 
 
-.borde{
+.borde,.margen{
     border-radius: 25px;
+}
+
+.margen{
+    padding-right: 10px;
+}
+
+.list-group{
+    max-height: 400px;
+    margin-bottom: 10px;
+    
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.delete{
+    color: red;
+    visibility:hidden;
+}
+
+.delete:hover {
+    visibility: visible;
 }
