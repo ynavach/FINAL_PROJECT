@@ -15,16 +15,12 @@ export const Pets=()=>{
     const [petSpecies, getPetSpecies] =useState()
     const [newImage, getNewImage] = useState({title:"", file: null})
     const [pet,getPet] = useState({})
-
-
     const [animation , setAnimation] = useState(0)
-    const [animationInfo , setAnimationInfo] = useState(0)
     
 
     const loadPage=(num)=>{
         setView(num)
         setAnimation(1)
-        setAnimationInfo(0)
     }
 
     useEffect(() => {
@@ -77,7 +73,6 @@ export const Pets=()=>{
         if (newImage.file !== null) {
             console.log("entra a cargar imagen")
             url = await uploadImage()
-            console.log("url",url)
         }
 
 
@@ -129,43 +124,51 @@ export const Pets=()=>{
         return(
             <div className={`d-flex justify-content-between ${animation == 1 ? "slide-in-right":"nada"}`}>
                 <div className="p-3">
-                    <h3>Formulario nuevas mascotas</h3>
+                    <h5 className="p-2 text-center bg-white borde m-4 mt-3 ">Formulario nuevas mascotas</h5>
                     <div >
                         <form className="col">
-                            <div className="d-flex mt-3">
-                                <select className="form-select" aria-label="Default select example" onChange={(e)=>getPetSpecies(e.target.value)}>
+                            <div className="d-flex mt-3 justify-content-between">
+                                <select className="form-select me-2" aria-label="Default select example" onChange={(e)=>getPetSpecies(e.target.value)}>
                                     <option defaultValue={"Especie"}>Especie</option>
                                     <option value="Gato">Gato</option>
                                     <option value="Perro">Perro</option>
                                 </select>                
-                                <select className="form-select" aria-label="Default select example" onChange={(e)=>getPetGender(e.target.value)}>
+                                <select className="form-select ms-2" aria-label="Default select example" onChange={(e)=>getPetGender(e.target.value)}>
                                     <option defaultValue={"Genero"}>Genero</option>
                                     <option value="Hembra">Hembra</option>
                                     <option value="Macho">Macho</option>
                                 </select>                          
                             </div>                  
                             <div className="my-3">
-                                <label htmlFor="petName" className="form-label">Nombre</label>
-                                <input type="text" className="form-control" id="petName" onChange={(e)=>getPetName(e.target.value)}/>
+                                <input type="text"  placeholder="Nombre" className="form-control" id="petName" onChange={(e)=>getPetName(e.target.value)}/>
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="petAge" className="form-label">Edad</label>
-                                <input type="text" className="form-control" id="petAge" onChange={(e)=>getPetAge(e.target.value)}/>
+                                <input type="text" placeholder="Edad"  className="form-control" id="petAge" maxLength={2} onChange={(e)=>getPetAge(e.target.value)}/>
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="petRace" className="form-label">Raza</label>
-                                <input type="text" className="form-control" id="petRace" onChange={(e)=>getPetRace(e.target.value)}/>
+                                <select className="form-select" id="petRace" aria-label="Default select example" onChange={(e)=>getPetRace(e.target.value)}>
+                                    <option defaultValue={"Raza"}>Raza</option>
+                                    {
+                                        petSpecies == "Perro" ? store.Perro.map((item,index) => 
+                                    <option className="d-flex m-4 justify-content-evenly p-2 bg-white borde" key={index} value={item}>
+                                        {item}
+                                    </option>) : petSpecies == "Gato" ? store.Gato.map((item,index) => 
+                                    <option className="d-flex m-4 justify-content-evenly p-2 bg-white borde" key={index} value={item}>
+                                        {item}
+                                    </option>) : <option> Selecione Especie</option>
+                                    }
+                                </select>         
                             </div>
-                            <div className="mb-3">
-                                <label htmlFor="avatar" className="form-label">Cargue una imagen</label>
+                            <div className="mb-3 bg-white">
+                                <label htmlFor="avatar" className="form-label  pt-2 px-3">Agrega una foto de tu mascota</label>
                                 <input type="file" className="form-control" id="avatar" name="avatar" accept="image/png, image/jpeg" onChange={handleChange}/>                            
                             </div>                        
-                            <button type="submit" className="mt-4 btn btn-primary" onClick={uploadPetInfo}>Agregar mascota</button>
+                            <button type="submit" className="mt-4 btn  btn-light " onClick={uploadPetInfo}>Agregar mascota</button>
                         </form>
                     </div>
                 </div>
                 <div className="p-3">
-                    <button className="" onClick={e=>(loadPage(0),setAnimationInfo(1))}>X</button>
+                    <button className="" onClick={e=>(loadPage(0))}><i className="fa-solid fa-xmark"/></button>
                 </div>
             </div>
         )
@@ -180,74 +183,60 @@ export const Pets=()=>{
                     <h5 className="my-4">Informacion de {petInfo.name} </h5>
                     <div className="d-flex">
                         <img className="me-2 col-6" src={petInfo.photo}  style={{ objectFit: "contain" }}/>
-                        <div className="container text-start">
-                            <div className="row">
-                                <div className="col-4">
-                                Nombre:
-                                </div>
-                                <div className="col">
-                                {petInfo.name}
-                                </div>
+                        <div className="container text-start bg-light p-3 borde m-4">
+                            <div className="col">
+                            Nombre:
+                            <span className="ms-2">{petInfo.name}</span>
                             </div>
-                            <div className="row">
-                                <div className="col-4">
-                                Edad:
-                                </div>
-                                <div className="col">
-                                {petInfo.age}
-                                </div>
+                            <div className="col">
+                            Edad:
+                            <span className="ms-2">{petInfo.age}</span>
                             </div>
-                            <div className="row">
-                                <div className="col-4">
-                                Raza:
-                                </div>
-                                <div className="col">
-                                {petInfo.race}
-                                </div>
+                            <div className="col">
+                            Raza:
+                            <span className="ms-2">{petInfo.race}</span>
                             </div>
-                            <div className="row">
-                                <div className="col-4">
-                                Especie:
-                                </div>
-                                <div className="col">
-                                {petInfo.species}
-                                </div>
+                            <div className="col">                            
+                            Especie:
+                            <span className="ms-2">{petInfo.species}</span>
                             </div>
-                            <div className="row">
-                                <div className="col-4">
-                                Genero:
-                                </div>
-                                <div className="col">
-                                {petInfo.gender}
-                                </div>
+                            <div className="col">                            
+                            Genero: 
+                            <span className="ms-2">{petInfo.gender}</span>
                             </div>
                         </div>                
                     </div>
+                    <button onClick={e=>deleteListElement(pet.item.id)} >Eliminar Mascota</button>
                     <h5 className="mt-4">historial de la mascota</h5>
                 </div>
                 <div className="p-3">
-                    <button className="" onClick={e=>loadPage(0)}>X</button>
+                    <button className="" onClick={e=>loadPage(0)}><i className="fa-solid fa-xmark"/></button>
                 </div>
             </div>
         )
     }
 
 
+    const deleteListElement = (id)=>{
+        console.log("imprime delete" ,id)
+        
+    }
+
+
+
+
     return (
         <div className="d-flex h-100 fondo">
-            <div className="col-4  d-flex flex-column justify-content-between">
+            <div className="col-4  d-flex flex-column ">
                 <div>
-                    <h5 className="border-bottom p-3 text-center bg-white m-3 borde">Lista de las mascotas registradas</h5>
+                    <h5 className=" p-2 text-center bg-white m-4 borde ">Lista de las mascotas registradas</h5>
                     <div>
                         {
                             store.user ? (
-                                <ul className="p-0 text-start">{store.user.pets.map((item,index) => 
-                                    <li className="d-flex m-3 justify-content-between p-2 bg-white borde" key={index} onClick={(e)=>(loadPage(2),getPet({item}),setAnimation(1))}>
-                                        <div className="ms-5">
-                                            Nombre: {item.name}
-                                        </div>
-                                        <div className="me-5">
-                                            Especie: {item.species}
+                                <ul className="p-0 text-start list-group">{store.user.pets.map((item,index) => 
+                                    <li className="d-flex m-4 justify-content-center p-2 bg-white borde" key={item.id} >
+                                        <div className="" onClick={(e)=>(loadPage(2),getPet({item}),setAnimation(1))}>                                
+                                                {item.name} - {item.species}
                                         </div>
                                     </li>)}
                                 </ul>
@@ -255,13 +244,13 @@ export const Pets=()=>{
                         }
                     </div>
                 </div>
-                <div>
-                    <button onClick={e=>loadPage(1)}>
+                <div className=" text-center  flex-fill">
+                    <button className="btn btn-light mt-3 " onClick={e=>loadPage(1)}>
                         Agregar una nueva mascota
                     </button>
                 </div>
             </div>
-            <div className={`flex-fill  border-start border-dark`}>
+            <div className={`flex-fill  `}>
                 {
                     view == 0 ? (<span/>) : view == 1 ? newPet(): petInfo()
                 }
