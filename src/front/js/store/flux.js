@@ -42,9 +42,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			removeToken: () => {
+				const store = getStore()
 				localStorage.removeItem("jwt_token");
 				setStore({jwt_token: null});
-				toast.success("Se ha cerrado sesión correctamente", {duration:4000});
+				if (!store.jwt_token) {
+					toast.success("Se ha cerrado sesión correctamente", {duration:4000});
+				}
 				<Toaster />
 			},
 

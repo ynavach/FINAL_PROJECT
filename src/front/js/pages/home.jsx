@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import toast, { Toaster } from 'react-hot-toast';
 import imgVet from "../../img/imgvet.jpg";
 import imgCatDog from "../../img/imgcatdog.jpg";
 import imgsec1left from "../../img/imgsec1left.png";
@@ -167,9 +168,7 @@ export const Home = () => {
 					</div>
 				</div>
 			</div>
-
-
-
+		<Toaster />
 		</div>
 	);
 };
