@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import logoblancoUrl from "../../img/logoblanco.png";
+import toast, { Toaster } from 'react-hot-toast';
 
 export const Navbar = () => {
   const { actions, store } = useContext(Context)
@@ -51,7 +52,7 @@ export const Navbar = () => {
                     <button className="btn btn-light" style={{ color: "#AB46D2", fontWeight: "bold"}}>Iniciar Sesión</button>
                   </Link>
                 :
-                  <Link to="/login">
+                  <Link to="/">
                     <button onClick={actions.removeToken} className="btn btn-light" style={{ color: "#AB46D2", fontWeight: "bold"}}>Cerrar Sesión</button>
                   </Link>
               }
@@ -59,6 +60,7 @@ export const Navbar = () => {
           </ul>
         </div>
       </div>
+      <Toaster />
     </nav>
   );
 };

@@ -31,6 +31,7 @@ export function LoginPage () {
                 const body = await response.json();
                 console.log(body);
                 actions.setToken(body.jwt_token);
+                toast.success("Se ha iniciado sesión correctamente", {duration:4000});
                 navigate("/my_account");
             }
             else if (response.status == 400) {

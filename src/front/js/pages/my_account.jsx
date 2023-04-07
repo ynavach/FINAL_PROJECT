@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {Pets} from "../pages/pets.jsx"
 import {My_Services} from "../pages/myServices.jsx"
 import { Context } from "../store/appContext";
+import toast, { Toaster } from 'react-hot-toast';
 import fondologo from "../../img/fondologo.png";
 
 
@@ -59,9 +60,8 @@ export const My_account=()=>{
                         view == 0 ? (<p>elem 2 </p>) : view == 1 ?  <Pets/> : <My_Services/>
                     }
                 </div>
-            </div>           
+            </div>
+            <Toaster />          
         </div>
-
     )
-
 }
