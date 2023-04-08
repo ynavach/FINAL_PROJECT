@@ -121,10 +121,11 @@ i.fa {
     padding-right: 10px;
 }
 
+
 .list-group{
     max-height: 400px;
+    min-height: 400px;
     margin-bottom: 10px;
-    
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
@@ -133,19 +134,19 @@ i.fa {
 ::-webkit-scrollbar {
     width: 10px;
 }
-  
+
   /* Track */
-  ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: #f1f1f1; 
 }
-   
+
   /* Handle */
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #888; 
 }
-  
+
   /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
 
@@ -160,4 +161,14 @@ body{
 
 .delete:hover {
     visibility: visible;
+}
+
+.pet-pic{
+    height: 230px;
+    width: 310px;
+}
+
+.pet-info{
+    height: 150px;
+    width: 200px;
 }

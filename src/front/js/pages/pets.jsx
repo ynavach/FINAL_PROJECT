@@ -16,15 +16,19 @@ export const Pets=()=>{
     const [newImage, getNewImage] = useState({title:"", file: null})
     const [pet,getPet] = useState({})
     const [animation , setAnimation] = useState(0)
+    const [petList,getPetList] = useState(0);
+
     
 
     const loadPage=(num)=>{
         setView(num)
         setAnimation(1)
+        
     }
 
     useEffect(() => {
         actions.getProfile()
+        getPetList(2)
     }, [store.jwt_token]);
 
     const verifyInput = (age, race, name, gender, species) => {
@@ -124,7 +128,7 @@ export const Pets=()=>{
         return(
             <div className={`d-flex justify-content-between ${animation == 1 ? "slide-in-right":"nada"}`}>
                 <div className="p-3">
-                    <h5 className="p-2 text-center bg-white borde m-4 mt-3 ">Formulario nuevas mascotas</h5>
+                    <h5 className="p-2 text-center bg-white borde m-4 mt-3 ">Formulario para <br/> nuevas mascotas</h5>
                     <div >
                         <form className="col">
                             <div className="d-flex mt-3 justify-content-between">
@@ -168,7 +172,7 @@ export const Pets=()=>{
                     </div>
                 </div>
                 <div className="p-3">
-                    <button className="" onClick={e=>(loadPage(0))}><i className="fa-solid fa-xmark"/></button>
+                    <button className="" onClick={e=>(loadPage(0))}><i className="fa-solid fa-xmark text-danger"/></button>
                 </div>
             </div>
         )
@@ -182,8 +186,8 @@ export const Pets=()=>{
                 <div>
                     <h5 className="my-4">Informacion de {petInfo.name} </h5>
                     <div className="d-flex">
-                        <img className="me-2 col-6" src={petInfo.photo}  style={{ objectFit: "contain" }}/>
-                        <div className="container text-start bg-light p-3 borde m-4">
+                        <img className="me-2 col-6 pet-pic" src={petInfo.photo}  style={{ objectFit: "contain" }}/>
+                        <div className="container text-start bg-light p-3 borde  pet-info">
                             <div className="col">
                             Nombre:
                             <span className="ms-2">{petInfo.name}</span>
@@ -206,20 +210,36 @@ export const Pets=()=>{
                             </div>
                         </div>                
                     </div>
-                    <button onClick={e=>deleteListElement(pet.item.id)} >Eliminar Mascota</button>
+                    <button className="text-danger mt-3" onClick={e=>deleteListElement(pet.item.id)} >Eliminar Mascota - <i className="text-danger fa-regular fa-trash-can"/> </button>
                     <h5 className="mt-4">historial de la mascota</h5>
                 </div>
                 <div className="p-3">
-                    <button className="" onClick={e=>loadPage(0)}><i className="fa-solid fa-xmark"/></button>
+                    <button className="" onClick={e=>loadPage(0)}><i className="text-danger fa-solid fa-xmark"/></button>
                 </div>
             </div>
         )
     }
 
 
-    const deleteListElement = (id)=>{
-        console.log("imprime delete" ,id)
-        
+    const deleteListElement = async (id)=>{
+        console.log("entra a eliminar el id: " ,id)
+        try{
+            const response =  await fetch(process.env.BACKEND_URL + `/api/delete/${id}`,{
+                method: 'DELETE',
+                header: {
+                    'Accept' : 'application/json',
+                    'Content-Type' : 'application/json',
+                }
+            })
+            if (response.ok){
+                alert("se elimino la mascota")
+                setView(0)
+                getPetList(5)
+            }else throw new Error(response.status);
+        }
+        catch(error){
+            console.log(error)
+        }
     }
 
 
@@ -228,12 +248,12 @@ export const Pets=()=>{
     return (
         <div className="d-flex h-100 fondo">
             <div className="col-4  d-flex flex-column ">
-                <div>
+                <div className="">
                     <h5 className=" p-2 text-center bg-white m-4 borde ">Lista de las mascotas registradas</h5>
                     <div>
                         {
                             store.user ? (
-                                <ul className="p-0 text-start list-group">{store.user.pets.map((item,index) => 
+                                <ul className="p-0 text-start  list-group">{store.user.pets.map((item,index) => 
                                     <li className="d-flex m-4 justify-content-center p-2 bg-white borde" key={item.id} >
                                         <div className="" onClick={(e)=>(loadPage(2),getPet({item}),setAnimation(1))}>                                
                                                 {item.name} - {item.species}
