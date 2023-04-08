@@ -19,18 +19,18 @@ export const Navbar = () => {
         </Link>
 
         <div className="justify-content-center" id="navbarCenter">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav nav-pills">
             <li className="nav-item">
-              <Link to="/" className="nav-link" style={{ color: "#FFFFFF" }}>Inicio</Link>
+              <Link to="/" className="nav-link hover-nav" type="button" style={{ color: "#FFFFFF" }}>Inicio</Link>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-link" style={{ color: "#FFFFFF" }}>Quiénes Somos</Link>
+              <Link to="/about" className="nav-link hover-nav" style={{ color: "#FFFFFF" }}>Quiénes Somos</Link>
             </li>
             <li className="nav-item">
-              <Link to="/services" className="nav-link" style={{ color: "#FFFFFF" }}>Servicios</Link>
+              <Link to="/services" className="nav-link hover-nav" style={{ color: "#FFFFFF" }}>Servicios</Link>
             </li>
             <li className="nav-item">
-              <Link to="/gallery" className="nav-link" style={{ color: "#FFFFFF" }}>Galeria</Link>
+              <Link to="/gallery" className="nav-link hover-nav" style={{ color: "#FFFFFF" }}>Galeria</Link>
             </li>
           </ul>
         </div>
@@ -40,20 +40,20 @@ export const Navbar = () => {
             <li className="nav-item">
               {
                 !store.jwt_token ?
-                  <Link to="/signup" className="nav-link" style={{ color: "#FFFFFF" }}>Regístrate</Link>
+                  <Link to="/signup" className="nav-link hover-nav me-2" style={{ color: "#FFFFFF" }}>Regístrate</Link>
                 :
-                  <Link to="/my_account" className="nav-link" style={{ color: "#FFFFFF" }}>Mi Perfil</Link>
+                  <Link to="/my_account" className="nav-link hover-nav me-2" style={{ color: "#FFFFFF" }}>Mi Perfil</Link>
               }           
             </li>
             <li className="nav-item">
               {
                 !store.jwt_token ?
                   <Link to="/login">
-                    <button className="btn btn-light" style={{ color: "#AB46D2", fontWeight: "bold"}}>Iniciar Sesión</button>
+                    <button className="btn btn-light hover-nav" style={{color:"#AB46D2", fontWeight:"bold"}}>Iniciar Sesión</button>
                   </Link>
                 :
                   <Link to="/">
-                    <button onClick={actions.removeToken} className="btn btn-light" style={{ color: "#AB46D2", fontWeight: "bold"}}>Cerrar Sesión</button>
+                    <button onClick={actions.removeToken} className="btn btn-light hover-nav" style={{color:"#AB46D2", fontWeight:"bold"}}>Cerrar Sesión</button>
                   </Link>
               }
             </li>

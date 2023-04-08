@@ -184,3 +184,10 @@ body{
     opacity: 0.85;
     box-shadow: 0 0 15px rgba(54, 13, 124, 0.7);
 }
+
+.hover-nav:hover {
+    opacity: 0.85;
+    box-shadow: 0 0 15px rgba(54, 13, 124, 0.7);
+    border-radius: 5%;
+    font-weight: bold;
+}
