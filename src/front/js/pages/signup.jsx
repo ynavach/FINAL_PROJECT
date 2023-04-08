@@ -64,45 +64,45 @@ export const Signup = () => {
   return (
     <div className="signup-flow" style={{minHeight:"99vh"}}>
       <div className="container d-flex align-items-center justify-content-center signup-css">
-        <form className="col-4 p-5 bg-light  signup-form">
+        <form className="col-4 p-4 bg-light  signup-form">
           <div className="d-flex flex-column align-items-center">
-            <h2>Registro de Cuenta</h2>
+            <h2 className="p-2" style={{color:"#AB46D2", fontWeight:"bold"}}>Registro de Cuenta</h2>
           </div>
           <div className="d-flex justify-content-between">
             <div className="mb-3 me-3">
-              <label htmlFor="userName" className="form-label">
+              <label htmlFor="userName" className="form-label" style={{color:"#AB46D2"}}>
                 Nombre
               </label>
               <input type="text" className="form-control" id="userName" onChange={(e) => setUserName(e.target.value)}/>
             </div>
             <div className="mb-3">
-              <label htmlFor="userLastName" className="form-label">
+              <label htmlFor="userLastName" className="form-label" style={{color:"#AB46D2"}}>
                 Apellido
               </label>
               <input type="text" className="form-control" id="userLastName" onChange={(e) => setUserLastName(e.target.value)}/>
             </div>
           </div>
           <div className="mb-3">
-            <label htmlFor="userPhone" className="form-label">
+            <label htmlFor="userPhone" className="form-label" style={{color:"#AB46D2"}}>
               Número de teléfono
             </label>
             <input type="number" className="form-control" id="userPhone" onChange={(e) => setUserPhone(e.target.value)}/>
           </div>
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label" style={{color:"#AB46D2"}}>
               Correo Electrónico
             </label>
             <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setUserEmail(e.target.value)}
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">
+            <label htmlFor="exampleInputPassword1" className="form-label" style={{color:"#AB46D2"}}>
               Contraseña
             </label>
             <input type="password" className="form-control" id="exampleInputPassword1" onChange={(e) => setUserPass(e.target.value)}/>
           </div>
           <div className="d-flex flex-column align-items-center">
-            <button type="" className="btn text-white" style={{ backgroundColor: "#AB46D2" }} onClick={createUser}>
+            <button type="" className="btn text-white hover-effect" style={{backgroundColor:"#AB46D2", border:"none"}} onClick={createUser}>
               Crear Cuenta
             </button>
           </div>

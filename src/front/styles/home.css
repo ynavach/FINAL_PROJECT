@@ -28,7 +28,7 @@ i.fa {
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(103, 58, 183, 0.7);
     padding: 50px 0px 50px 0px;
-    height: 600px;  
+    height: 75vh;  
 }
 
 .signup-flow{
@@ -37,11 +37,12 @@ i.fa {
 
 .signup-form{
     border-radius: 20px 0px 0px 20px;
+    height: 65vh;
 }
 
 .image-form{
     border-radius: 0px 20px 20px 0px;
-    height: 522px;
+    height: 65vh;
 }
 
 .my-account-css{
