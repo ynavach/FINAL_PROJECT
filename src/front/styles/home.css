@@ -76,6 +76,7 @@ i.fa {
 
 .fondo{
     background-color:  rgba(171, 70, 210, 0.9);
+    box-shadow: 0 0 10px rgba(54, 13, 124, 0.7);
     border-radius: 25px;
 }
 
@@ -171,4 +172,14 @@ body{
 .pet-info{
     height: 150px;
     width: 200px;
+}
+
+.profile-img {
+    height: 150px;
+    width: 150px;
+}
+
+.hover-effect:hover {
+    opacity: 0.85;
+    box-shadow: 0 0 15px rgba(54, 13, 124, 0.7);
 }
