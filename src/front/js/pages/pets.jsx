@@ -180,18 +180,16 @@ export const Pets=()=>{
     }
 
     const petInfo=()=>{
-        console.log("imprime el prop", pet.item)
         let petInfo = pet.item
         return(
-            <div className={`ms-4 d-flex ${animation == 1 ? "slide-in-right":"nada"}`}>
-                <div>
-                    <h5 className="my-4">Informacion de {petInfo.name} </h5>
-                    <div className="d-flex">
+            <div className={`ms-5 d-flex justify-content-between ${animation == 1 ? "slide-in-right":"nada"}`}>
+                <div className="pt-5">
+                    <div className="d-flex mt-5">
                         <img className="me-2 col-6 pet-pic" src={petInfo.photo}  style={{ objectFit: "contain" }}/>
-                        <div className="container text-start bg-light p-3 borde  pet-info">
-                            <div className="col">
-                            Nombre:
-                            <span className="ms-2">{petInfo.name}</span>
+                        <div className="ms-4 container text-start bg-light p-3 borde  pet-info">
+                            <div className="col text-center">
+
+                            <h3 className="ms-2">{petInfo.name}</h3>
                             </div>
                             <div className="col">
                             Edad:
@@ -212,7 +210,7 @@ export const Pets=()=>{
                         </div>                
                     </div>
                     <button className="text-danger mt-3" onClick={e=>deleteListElement(pet.item.id)} >Eliminar Mascota - <i className="text-danger fa-regular fa-trash-can"/> </button>
-                    <h5 className="mt-4">historial de la mascota</h5>
+                    <h5 className="mt-4">historial de la mascota (borrar)</h5>
                 </div>
                 <div className="p-3">
                     <button className="" onClick={e=>loadPage(0)}><i className="text-danger fa-solid fa-xmark"/></button>
