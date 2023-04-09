@@ -191,3 +191,7 @@ body{
     border-radius: 5%;
     font-weight: bold;
 }
+
+.pointer:hover{
+    cursor: pointer;
+}

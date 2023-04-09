@@ -101,7 +101,8 @@ export const Pets=()=>{
                     body: JSON.stringify(bodyPet)                   
                 });
                 if (response.status == 201) {
-                    alert("Se ha agregado satisfactoriamente la mascota");                
+                    alert("Se ha agregado satisfactoriamente la mascota");    
+                    actions.getProfile()            
                 } else {
                     alert("Se produjo un error al agregar su mascota");
                     throw new Error(response.status);
@@ -235,6 +236,7 @@ export const Pets=()=>{
                 alert("se elimino la mascota")
                 setView(0)
                 getPetList(5)
+                actions.getProfile()
             }else throw new Error(response.status);
         }
         catch(error){
@@ -254,8 +256,8 @@ export const Pets=()=>{
                         {
                             store.user ? (
                                 <ul className="p-0 text-start  list-group">{store.user.pets.map((item,index) => 
-                                    <li className="d-flex m-4 justify-content-center p-2 bg-white borde" key={item.id} >
-                                        <div className="" onClick={(e)=>(loadPage(2),getPet({item}),setAnimation(1))}>                                
+                                    <li className="d-flex m-4 justify-content-center p-2 bg-white borde pointer" key={item.id} onClick={(e)=>(loadPage(2),getPet({item}),setAnimation(1))}>
+                                        <div className="" >                                
                                                 {item.name} - {item.species}
                                         </div>
                                     </li>)}
