@@ -12,6 +12,7 @@ import { Footer } from "./component/footer";
 import { LoginPage } from "./pages/login.jsx";
 import { My_account } from "./pages/my_account.jsx";
 import { PrivateProfile } from "./pages/privateProfile.jsx";
+import { About } from "./pages/about.jsx";
 
 //create your first component
 const Layout = () => {
@@ -29,6 +30,7 @@ const Layout = () => {
                         <Route element={<Signup />} path="/signup" />
                         <Route element={<My_account />} path="/my_account" />
                         <Route element={<Services />} path="/services" />
+                        <Route element={<About />} path="//about" />
                         <Route element={<Gallery />} path="/gallery" />
                         <Route element={<LoginPage />} path="/login" />
                         <Route element={<PrivateProfile />} path="/profile" />

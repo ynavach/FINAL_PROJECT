@@ -14,6 +14,7 @@ import peluqueriaUrl from "../../img/peluqueria.png";
 import vacunacionUrl from "../../img/vacunacion.png";
 import mascotas3 from "../../img/mascotas3.jpg";
 import services from "../component/services.jsx";
+import about from "../pages/about.jsx";
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
@@ -27,9 +28,8 @@ export const Home = () => {
 
 	return (
 
-		
 		<div className="text-center" >
-			<div className="jumbotron pt-5 mt-3 " style={{background:"white", fontFamily: "Montserrat, sans-serif"}}>
+			<div className="jumbotron ms-2 pt-5 mt-3 " style={{background:"white", fontFamily: "Montserrat, sans-serif"}}>
 
 				<div>
 					<div className="row d-flex mt-5 mb-5">
@@ -39,7 +39,7 @@ export const Home = () => {
 						<div className="col-sm-4 ">
 							<h4  className="mt-2 pt-2" > <strong> El  mejor  equipo  del  mundo en <br></br> servicios de cuidado para mascotas <br></br> <br></br> </strong> </h4>
 					
-							<p className=" lh-base text-center justify-content" style={{align:"justify"}}>En Huellas PetCare, su mascota es nuestra prioridad. Estamos orgullosos de ofrecer nuestros servicios veterinarios a gatos y perros.</p>
+							<p className=" lh-base text-center justify-content" style={{align:"justify"}}>En la clínica veterinaria Huellas PetCare, su mascota es nuestra prioridad. Estamos orgullosos de ofrecer nuestros servicios veterinarios a gatos y perros.</p>
 							<Link to="/services">
 								<span className="btn btn-primary btn-lg rounded-pill justify-content-center " style={{backgroundColor:"#FF6FB5"}} href={"Servicios"} role="button"
 								>Nuestros Servicios</span>
@@ -58,14 +58,14 @@ export const Home = () => {
 				<div className="card mb-3" style={{maxWwidth: "540px"}}>
 					<div className="row g-0">
 						
-						<div className="col-md-8" style={{fontFamily: "Montserrat, sans-serif"}}>
+						<div className="col-md-8 mb-3" style={{fontFamily: "Montserrat, sans-serif"}}>
 							<div className="card-body">
-								<h2 className="card-title">  <strong> Valores </strong> <br></br> <br></br></h2>
-								<p className="card-text">Nuestros valores fundamentales de respeto, integridad y confianza son el corazón palpitante de nuestra práctica. En Huellas PetCare, la prestación de atención veterinaria excepcional y servicio al cliente es una forma de vida. No solo destacamos por nuestro amor a los animales, sino también por nuestros años combinados de experiencia.</p>
-								<p className="card-text"><small className="text-muted"><br></br></small></p>
-								<Link to="*">
+								<h3 className="card-title fw-bold pt-3 mt-3"> Huellas PetCare <br></br> <br></br></h3>
+								<p className="card-text">En nuestra clínica, la atención veterinaria excepcional y el servicio al cliente es nuestra forma de vida.  No solo destacamos por nuestro amor a los animales, sino también por nuestros amplios años de experiencia.  En la actualidad estamos innovando con nuestro proyecto tecnológico de incorporación de la aplicación <u> Huellas PetCare</u> a nuestro website. </p>
+								<p className="card-text"><small className="text-muted"></small></p>
+								<Link to="/about">
 									<span className="btn btn-primary btn-lg rounded-pill justify-content-center " style={{backgroundColor:"#FF6FB5"}} href={"About"} role="button"
-									>Quienes Somos</span>
+									>Conocer más</span>
 								</Link>
 							</div>
 						</div>
