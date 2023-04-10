@@ -1,27 +1,47 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Context } from "../store/appContext";
-import toast, { Toaster } from 'react-hot-toast';
+import React, { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { Modal_Services } from "./modalServices.jsx";
+import { Context } from "../../js/store/appContext.js";
 import consultaUrl from "../../img/consulta.png";
 import vacunacionUrl from "../../img/vacunacion.png";
 import cirugiaUrl from "../../img/cirugia.png";
 import peluqueriaUrl from "../../img/peluqueria.png";
 import desparasitacionUrl from "../../img/desparasitacion.png";
 import emergenciaUrl from "../../img/emergencia.png";
-import fondoserv2Url from "../../img/fondoserv2.png";
-
-export const Services = () => {
-
-  const { store, actions } = useContext(Context)
+import fondoserv2Url from "../../img/fondoserv2.png";  
+  
+const Services = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const { store, actions } = useContext(Context);
+  const isMedic = store.user && store.user.medic === true;
+  const [isEnabled, setIsEnabled] = useState([]);
+  const [servicesData, setServicesData] = useState(null); 
 
+  const getServicesData = async () => {
+    try {
+      const response = await fetch(process.env.BACKEND_URL + "/api/services");
+      const data = await response.json();
+      setServicesData(data); 
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => { 
+    getServicesData(); 
+  }, []);
+      
   const handleCardHover = (index) => {
     setHoveredCard(index);
   };
 
   const handleCardLeave = () => {
     setHoveredCard(null);
+  };
+
+  const handleDisableClick = (index) => {
+    const newIsEnabled = [...isEnabled];
+    newIsEnabled[index] = !isEnabled[index];
+    setIsEnabled(newIsEnabled);
   };
 
   return (
@@ -59,7 +79,8 @@ export const Services = () => {
               style={{
                 height: "106%",
                 boxShadow:
-                  hoveredCard === 0 ? "0 0 10px rgba(103, 58, 183, 0.7)" : "",
+                hoveredCard === 0 ? "0 0 10px rgba(103, 58, 183, 0.7)" : "",
+                opacity: isEnabled[0] ? "1" : "0.5", 
               }}
               onMouseEnter={() => handleCardHover(0)}
               onMouseLeave={handleCardLeave}
@@ -82,18 +103,13 @@ export const Services = () => {
                 <li>Consulta de enfermedades</li>
                 <li>Consulta post-operación</li>
               </ul>
-
-              {
-                store.jwt_token ?
-                  <Modal_Services/>
-                :
-                  <div className="d-flex align-items-center justify-content-center">
-                    <button onClick={() => {toast.error("Inicia sesión para agendar servicios")}} type="button" className="btn btn btn-secondary hover-effect mt-3">
-                      Agendar Servicio
-                    </button>               
-                  </div>
-              }
-
+              {isMedic && (
+                <div>
+                  <Button variant="primary" onClick={() => handleDisableClick(0)}>
+                      {isEnabled[0] ? "Deshabilitar" : "Habilitar"}
+                    </Button>
+                </div>
+              )}
             </Card.Body>
           </Card>
         </Col>
@@ -102,7 +118,8 @@ export const Services = () => {
             style={{
               height: "100%",
               boxShadow:
-                hoveredCard === 1 ? "0 0 10px rgba(103, 58, 183, 0.7)" : "",
+              hoveredCard === 1 ? "0 0 10px rgba(103, 58, 183, 0.7)" : "",
+              opacity: isEnabled[1] ? "1" : "0.5", 
             }}
             onMouseEnter={() => handleCardHover(1)}
             onMouseLeave={handleCardLeave}
@@ -125,6 +142,13 @@ export const Services = () => {
                 <li>Vacuna contra el parvovirus</li>
                 <li>Vacuna contra la leptospirosis</li>
               </ul>
+              {isMedic && (
+                <div>
+                  <Button variant="primary" onClick={() => handleDisableClick(1)}>
+                    {isEnabled[1] ? "Deshabilitar" : "Habilitar"}
+                  </Button>
+                </div>
+              )}
             </Card.Body>
           </Card>
         </Col>
@@ -132,7 +156,9 @@ export const Services = () => {
           <Card
             style={{
               height: "100%",
-              boxShadow: hoveredCard === 2 ? "0 0 10px rgba(0, 0, 139, 0.7)" : "",
+              boxShadow:
+              hoveredCard === 2 ? "0 0 10px rgba(103, 58, 183, 0.7)" : "",
+              opacity: isEnabled[2] ? "1" : "0.5", 
             }}
             onMouseEnter={() => handleCardHover(2)}
             onMouseLeave={handleCardLeave}
@@ -153,6 +179,13 @@ export const Services = () => {
                 <li>Cirugía de columna</li>
                 <li>Cirugía ortopédica</li>
               </ul>
+              {isMedic && (
+                <div>
+                  <Button variant="primary" onClick={() => handleDisableClick(2)}>
+                    {isEnabled[2] ? "Deshabilitar" : "Habilitar"}
+                  </Button>
+                </div>
+              )}
             </Card.Body>
           </Card>
         </Col>
@@ -161,7 +194,9 @@ export const Services = () => {
         <Col md={4} xs={12}>
         <Card style={{
               height: "100%",
-              boxShadow: hoveredCard === 3 ? "0 0 10px rgba(0, 0, 139, 0.7)" : "",
+              boxShadow:
+              hoveredCard === 3 ? "0 0 10px rgba(103, 58, 183, 0.7)" : "",
+              opacity: isEnabled[3] ? "1" : "0.5", 
             }}
             onMouseEnter={() => handleCardHover(3)}
             onMouseLeave={handleCardLeave}
@@ -178,13 +213,22 @@ export const Services = () => {
                 <li>Baño y secado</li>
                 <li>Corte de uñas</li>
               </ul>
+              {isMedic && (
+                <div>
+                  <Button variant="primary" onClick={() => handleDisableClick(3)}>
+                    {isEnabled[3] ? "Deshabilitar" : "Habilitar"}
+                  </Button>
+                </div>
+              )}
             </Card.Body>
           </Card>
         </Col>
         <Col md={4} xs={12}>
         <Card style={{
               height: "100%",
-              boxShadow: hoveredCard === 4 ? "0 0 10px rgba(0, 0, 139, 0.7)" : "",
+              boxShadow:
+              hoveredCard === 4 ? "0 0 10px rgba(103, 58, 183, 0.7)" : "",
+              opacity: isEnabled[4] ? "1" : "0.5", 
             }}
             onMouseEnter={() => handleCardHover(4)}
             onMouseLeave={handleCardLeave}
@@ -201,13 +245,22 @@ export const Services = () => {
               <li>Prevención de enfermedades parasitarias</li>
               <li>Asesoramiento sobre cuidados preventivos</li>
             </ul>
+            {isMedic && (
+                <div>
+                  <Button variant="primary" onClick={() => handleDisableClick(4)}>
+                    {isEnabled[4] ? "Deshabilitar" : "Habilitar"}
+                  </Button>
+                </div>
+              )}
           </Card.Body>
         </Card>
       </Col>
       <Col md={4} xs={12}>
       <Card style={{
               height: "100%",
-              boxShadow: hoveredCard === 5 ? "0 0 10px rgba(0, 0, 139, 0.7)" : "",
+              boxShadow:
+              hoveredCard === 5 ? "0 0 10px rgba(103, 58, 183, 0.7)" : "",
+              opacity: isEnabled[5] ? "1" : "0.5", 
             }}
             onMouseEnter={() => handleCardHover(5)}
             onMouseLeave={handleCardLeave}
@@ -224,12 +277,18 @@ export const Services = () => {
               <li>Estabilización de mascotas en estado crítico</li>
               <li>Monitoreo y cuidados intensivos</li>
             </ul>
+            {isMedic && (
+                <div>
+                    <Button variant="primary" onClick={() => handleDisableClick(5)}>
+                      {isEnabled[5] ? "Deshabilitar" : "Habilitar"}
+                    </Button>
+                </div>
+              )}
           </Card.Body>
         </Card>
       </Col>
       </Row>
     </Container>
-    <Toaster />
     </div>
   );
 };

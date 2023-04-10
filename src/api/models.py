@@ -79,3 +79,15 @@ class User(db.Model):
             "pets": [pet.serialize() for pet in self.pets]
         }
 
+
+class Services(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    enabled = db.Column(db.Boolean, default=True, nullable=False)
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'enabled': self.enabled
+        }

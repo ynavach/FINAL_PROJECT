@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Pets
+from api.models import db, User, Pets, Services
 from api.utils import generate_sitemap, APIException
 from flask_migrate import Migrate
 from flask_swagger import swagger
@@ -102,3 +102,24 @@ def handle_delete(id):
     db.session.delete(petDelete)
     db.session.commit()
     return "Se ha eliminado con exito su mascota",201
+
+@api.route('/services', methods=['GET', 'POST', 'DELETE'])
+def handle_services():
+    if request.method == 'GET':
+        servicios = Services.query.all()
+        servicios_serializados = [servicio.serialize() for servicio in servicios]
+        return jsonify(servicios_serializados), 200
+
+    elif request.method == 'POST':
+        new_service = Services(
+            name=request.json['name'],
+            enabled=request.json["enabled"]
+        )
+        db.session.add(new_service)
+        db.session.commit()
+        new_service_dict = new_service.serialize()
+        return jsonify(new_service_dict), 201
+    elif request.method == 'DELETE':
+        Services.query.delete()
+        db.session.commit()
+        return jsonify({'message': 'Todos los servicios han sido borrados'}), 200
