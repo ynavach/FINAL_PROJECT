@@ -90,10 +90,8 @@ def handle_create_pets():
 
 @api.route("/upload", methods=['POST'])
 def upload_file():
-
     cloudinary.config(cloud_name = 'dmgyyv1j3', api_key='253179481662428', api_secret='NXxWGCzsuF3Tb9zOqqXrXQPwjZE')
     file_to_upload = request.files['file']
-    print('archivo',file_to_upload)
     if file_to_upload:
         upload_result = cloudinary.uploader.upload(file_to_upload)
         return jsonify(upload_result)
