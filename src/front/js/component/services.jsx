@@ -89,7 +89,7 @@ export const Services = () => {
                 :
                   <div className="d-flex align-items-center justify-content-center">
                     <button onClick={() => {toast.error("Inicia sesión para agendar servicios")}} type="button" className="btn btn btn-secondary hover-effect mt-3">
-                      Agendar Servicio
+                      Agendar Servici
                     </button>               
                   </div>
               }
