@@ -182,7 +182,9 @@ body{
 
 .hover-effect:hover {
     opacity: 0.85;
+    background-color:#AB46D2;
     box-shadow: 0 0 15px rgba(54, 13, 124, 0.7);
+    font-weight: bold;
 }
 
 .hover-nav:hover {
@@ -192,6 +194,18 @@ body{
     font-weight: bold;
 }
 
+.btn-services {
+    background-color:#AB46D2;
+    color:white; 
+    border:none;
+}
+
 .pointer:hover{
     cursor: pointer;
+}
+
+.service-form{
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0 10px rgba(54, 13, 124, 0.7);
+    height: 100%;
 }

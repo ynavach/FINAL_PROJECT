@@ -55,10 +55,10 @@ export const My_account=()=>{
                         }
                     </div>
                     <div className="d-flex align-items-center justify-content-center p-3"> 
-                        <button onClick={e=>LoadPage(1)} className="btn btn-light hover-effect" style={{color:"#AB46D2", fontWeight:"bold"}}>MIS MASCOTAS </button> 
+                        <button onClick={e=>LoadPage(1)} className="btn btn-light hover-nav" style={{color:"#AB46D2", fontWeight:"bold"}}>MIS MASCOTAS </button> 
                     </div>
                     <div className="d-flex align-items-center justify-content-center p-3">
-                        <button onClick={e=>LoadPage(2)} className="btn btn-light hover-effect" style={{color:"#AB46D2", fontWeight:"bold"}}>SERVICIOS AGENDADOS</button>
+                        <button onClick={e=>LoadPage(2)} className="btn btn-light hover-nav" style={{color:"#AB46D2", fontWeight:"bold"}}>SERVICIOS AGENDADOS</button>
                     </div>
                 </div>
                 

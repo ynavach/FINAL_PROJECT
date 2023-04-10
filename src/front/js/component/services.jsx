@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { Context } from "../store/appContext";
+import toast, { Toaster } from 'react-hot-toast';
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Modal_Services } from "./modalServices.jsx";
 import consultaUrl from "../../img/consulta.png";
 import vacunacionUrl from "../../img/vacunacion.png";
 import cirugiaUrl from "../../img/cirugia.png";
@@ -8,7 +11,9 @@ import desparasitacionUrl from "../../img/desparasitacion.png";
 import emergenciaUrl from "../../img/emergencia.png";
 import fondoserv2Url from "../../img/fondoserv2.png";
 
-const Services = () => {
+export const Services = () => {
+
+  const { store, actions } = useContext(Context)
   const [hoveredCard, setHoveredCard] = useState(null);
 
   const handleCardHover = (index) => {
@@ -77,6 +82,18 @@ const Services = () => {
                 <li>Consulta de enfermedades</li>
                 <li>Consulta post-operación</li>
               </ul>
+
+              {
+                store.jwt_token ?
+                  <Modal_Services/>
+                :
+                  <div className="d-flex align-items-center justify-content-center">
+                    <button onClick={() => {toast.error("Inicia sesión para agendar servicios")}} type="button" className="btn btn btn-secondary hover-effect mt-3">
+                      Agendar Servicio
+                    </button>               
+                  </div>
+              }
+
             </Card.Body>
           </Card>
         </Col>
@@ -212,6 +229,7 @@ const Services = () => {
       </Col>
       </Row>
     </Container>
+    <Toaster />
     </div>
   );
 };

@@ -2,7 +2,30 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+class Requested_Service(db.Model):
+    __tablename__ = 'requested_service'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), unique=False, nullable=False)
+    date = db.Column(db.DateTime(), unique=False, nullable=False)
+    owner_id = db.Column(db.ForeignKey('user.id'))
+    pet_id = db.Column(db.ForeignKey('pets.id')) 
+    owner = db.relationship('User', back_populates="requested_service")
+    pets = db.relationship('Pets', back_populates="requested_service")
+
+    def _repr_(self):
+        return f'<Requested_Service {self.name}>'
+    
+    def serialize(self):
+        return{
+            "id": self.id,
+            "name": self.name,
+            "date": self.date,           
+            "owner_id":self.owner_id,
+            "pet_id":self.pet_id
+        }
+
 class Pets(db.Model):
+    __tablename__ = 'pets'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=False, nullable=False)
     age = db.Column(db.String(2),unique=False, nullable=False )
@@ -11,7 +34,8 @@ class Pets(db.Model):
     species = db.Column(db.String(80), unique=False, nullable=False)
     photo = db.Column(db.String(500), unique=False, nullable=False)
     owner_id = db.Column(db.ForeignKey('user.id'))  
-    owner = db.relationship('User',back_populates="pets")
+    owner = db.relationship('User', back_populates="pets")
+    requested_service = db.relationship('Requested_Service', back_populates="pets")
 
     def _repr_(self):
         return f'<Pets {self.name}>'
@@ -29,6 +53,7 @@ class Pets(db.Model):
         }
 
 class User(db.Model):
+    __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=False, nullable=False)
     last_name = db.Column(db.String(120), unique=False, nullable=False)
@@ -37,7 +62,8 @@ class User(db.Model):
     salt = db.Column(db.String(500), unique=True, nullable=False)
     hashed_password = db.Column(db.String(500), unique=False, nullable=False)
     medic = db.Column(db.Boolean, unique=False, nullable=False)
-    pets = db.relationship('Pets',back_populates="owner")
+    pets = db.relationship('Pets', back_populates="owner")
+    requested_service = db.relationship('Requested_Service', back_populates="owner")
 
     def _repr_(self):
         return f'<User {self.email}>'
