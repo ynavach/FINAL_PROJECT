@@ -110,6 +110,18 @@ const Services = () => {
                     </Button>
                 </div>
               )}
+
+              {
+                store.jwt_token ?
+                  <Modal_Services/>
+                :
+                  <div className="d-flex align-items-center justify-content-center">
+                    <button onClick={() => {toast.error("Inicia sesión para agendar servicios")}} type="button" className="btn btn btn-secondary hover-effect mt-3">
+                      Agendar Servici
+                    </button>               
+                  </div>
+              }
+
             </Card.Body>
           </Card>
         </Col>
