@@ -102,36 +102,3 @@ def handle_delete(id):
     db.session.delete(petDelete)
     db.session.commit()
     return "Se ha eliminado con exito su mascota",201
-
-@api.route('/services', methods=['PATCH', 'GET', 'POST', 'DELETE'])
-def handle_services():
-    if request.method == 'GET':
-        servicios = Services.query.all()
-        servicios_serializados = [servicio.serialize() for servicio in servicios]
-        print(servicios_serializados)
-        return jsonify(servicios_serializados), 200
-
-    elif request.method == 'POST':
-        new_service = Services(
-            name=request.json['name'],
-            enabled=request.json["enabled"]
-        )
-        db.session.add(new_service)
-        db.session.commit()
-        new_service_dict = new_service.serialize()
-        return jsonify(new_service_dict), 201
-    elif request.method == 'DELETE':
-        Services.query.delete()
-        db.session.commit()
-        return jsonify({'message': 'Todos los servicios han sido borrados'}), 200
-
-@api.route('/services/<int:id>', methods=['PATCH'])
-def handle_patch_service(id):
-    service = Services.query.get(id)
-    data = request.json
-    print(data)
-    if data.get("enabled") is not None:
-        service.enabled = data["enabled"] 
-
-    db.session.commit()
-    return jsonify(), 200
