@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Context } from "../../js/store/appContext.js";
+import { Modal_Services } from "./modalServices.jsx";
+import toast, { Toaster } from 'react-hot-toast';
 import consultaUrl from "../../img/consulta.png";
 import vacunacionUrl from "../../img/vacunacion.png";
 import cirugiaUrl from "../../img/cirugia.png";
@@ -80,6 +82,16 @@ const Services = () => {
                 <li>Consulta de enfermedades</li>
                 <li>Consulta post-operación</li>
               </ul>
+              {
+                store.jwt_token ?
+                  <Modal_Services name="Servicio de Consultas"/>
+                :
+                  <div className="d-flex align-items-center justify-content-center">
+                    <button onClick={() => {toast.error("Inicia sesión para agendar servicios")}} type="button" className="btn btn btn-secondary hover-effect mt-3">
+                      Agendar Servicio
+                    </button>               
+                  </div>
+              }
             </Card.Body>
           </Card>
         </Col>
@@ -219,6 +231,7 @@ const Services = () => {
       </Col>
       </Row>
     </Container>
+    <Toaster/>
     </div>
   );
 };
