@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+import toast, { Toaster } from 'react-hot-toast';
 import logoblancoUrl from "../../img/logoblanco.png";
 
 
@@ -101,10 +102,10 @@ export const Pets=()=>{
                     body: JSON.stringify(bodyPet)                   
                 });
                 if (response.status == 201) {
-                    alert("Se ha agregado satisfactoriamente la mascota");    
+                    toast.success("Mascota registrada satisfactoriamente");    
                     actions.getProfile()            
                 } else {
-                    alert("Se produjo un error al agregar su mascota");
+                    toast.error("Se produjo un error al registrar su mascota");
                     throw new Error(response.status);
                 }
             }
@@ -112,7 +113,7 @@ export const Pets=()=>{
                 console.log(error);
             }
         } else
-            return(alert("datos incorrectos") )
+            return(toast.error("Error: datos incorrectos") )
     }
 
     const handleChange =(e)=>{
@@ -231,7 +232,7 @@ export const Pets=()=>{
                 }
             })
             if (response.ok){
-                alert("se elimino la mascota")
+                toast.success("Mascota eliminada correctamente")
                 setView(0)
                 getPetList(5)
                 actions.getProfile()
@@ -276,7 +277,5 @@ export const Pets=()=>{
                 }
             </div>
         </div>
-
     )
-
 }
