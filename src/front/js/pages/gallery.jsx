@@ -15,7 +15,7 @@ const Gallery = () => {
       <Container style={{ marginTop: "100px" }}>
             <Row>
               <Col md={6}>
-                <h1 className="mb-5 mt-5">Galeria</h1>
+                <h1 className="mb-5 mt-5" style={{color:"#AB46D2", fontWeight:"bold"}}>Galería</h1>
                 <div className="fusion-column col-lg-12 col-md-12 col-sm-12" style={{ marginTop: "50px", marginBottom: "50px" }}>
                   <p>
                   Bienvenidos a nuestra galería de Huellas PetCare! En nuestra clínica veterinaria, nos enorgullece no solo brindar atención médica excepcional a nuestras mascotas, sino también crear un ambiente cálido y acogedor donde se sientan seguros y felices. Aquí, hemos recopilado algunas fotos de nuestras instalaciones, para que puedan ver por sí mismos la calidad de lo que brindamos. Estamos aquí para asegurarnos de que todas las mascotas que ingresan por nuestras puertas se sientan como en casa. ¡Disfruten de nuestra galería y esperamos verlos pronto en nuestra clínica!

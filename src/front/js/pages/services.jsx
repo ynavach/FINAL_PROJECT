@@ -63,7 +63,7 @@ const Services = () => {
                 <Col className="text-center">
                   <Link to="/signup">
                     <Button className="btn btn-dark btn-services hover-effect mt-3" size="lg" style={{ backgroundColor: "#ab46d2", borderRadius: "50px" }}>
-                      ¡Registrate ahora!
+                      ¡Regístrate ahora!
                     </Button>
                   </Link>
                 </Col>
