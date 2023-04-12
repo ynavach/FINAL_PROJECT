@@ -230,3 +230,17 @@ body{
     box-shadow: 0 0 10px rgba(54, 13, 124, 0.7);
     border-radius: 5px;
 }
+
+.btn-landing {
+    box-shadow: 0 0 10px rgba(54, 13, 124, 0.7);
+    border-radius: 5px;
+}
+
+.btn-landing:hover {
+    color:white;
+    opacity: 0.95;
+    font-weight:bolder;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(54, 13, 124, 0.7);
+    border-radius: 5px;
+}
