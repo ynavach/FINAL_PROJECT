@@ -95,6 +95,7 @@ def handle_schedule_services():
     new_service = Requested_Service()
     new_service.service_name = data['service_name']
     new_service.date = data['date']
+    new_service.time = data['time']
     new_service.owner_name = data['owner_name']
     new_service.pet_name = data['pet_name']
     new_service.pet_species = data['pet_species']

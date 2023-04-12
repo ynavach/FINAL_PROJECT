@@ -7,6 +7,7 @@ class Requested_Service(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     service_name = db.Column(db.String(80), unique=False, nullable=False)
     date = db.Column(db.Date(), unique=False, nullable=False)
+    time = db.Column(db.String(80), unique=False, nullable=False)
     owner_name = db.Column(db.String(80), unique=False, nullable=False)
     pet_name = db.Column(db.String(80), unique=False, nullable=False)
     pet_species = db.Column(db.String(80), unique=False, nullable=False)
@@ -22,7 +23,8 @@ class Requested_Service(db.Model):
         return{
             "id": self.id,
             "service_name": self.service_name,
-            "date": self.date,           
+            "date": self.date,
+            "time": self.time,          
             "owner_name": self.owner_name,           
             "pet_name": self.pet_name,
             "pet_species": self.pet_species,          

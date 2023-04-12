@@ -66,6 +66,7 @@ export const My_Services=()=>{
                             <span><b>ID Servicio:</b> {serviceInfo.id}</span>
                             <span><b>Concepto:</b> {serviceInfo.service_name}</span>
                             <span><b>Fecha:</b> {serviceInfo.date}</span>
+                            <span><b>Hora Estimada:</b> {serviceInfo.time}</span>
                             <span><b>Titular:</b> {serviceInfo.owner_name}</span>
                             <span><b>Mascota:</b> {serviceInfo.pet_name}</span>
                             <span><b>Especie:</b> {serviceInfo.pet_species}</span>

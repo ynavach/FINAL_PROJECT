@@ -15,6 +15,7 @@ export const Modal_Services = (props) => {
         event.preventDefault();
         const serviceName = props.name
         const serviceDate = event.target.elements.serviceDate.value
+        const serviceTime = event.target.elements.serviceTime.value
         const serviceOwner = event.target.elements.serviceOwner.value
         const servicePet = event.target.elements.servicePet.value
         let servicePetSpecies = ""
@@ -45,6 +46,7 @@ export const Modal_Services = (props) => {
         const serviceData = {
             "service_name": serviceName,
             "date": serviceDate,
+            "time": serviceTime,
             "owner_name": serviceOwner,
             "pet_name": servicePet,
             "pet_species": servicePetSpecies,
@@ -134,10 +136,16 @@ export const Modal_Services = (props) => {
                                         }    
                                     </select>  
                                 </div>
-
-                                <div className="mb-4" style={{width:"25vw"}}>
-                                    <label htmlFor="serviceDate" className="form-label" style={{color:"#AB46D2", fontWeight:"bold"}}>Fecha</label>
-                                    <input type="date" className="form-control" id="serviceDate" required />
+                                
+                                <div className="d-flex align-items-center justify-content-between flex-row" style={{width:"25vw"}}>
+                                    <div className="mb-4" style={{width:"15vw"}}>
+                                        <label htmlFor="serviceDate" className="form-label" style={{color:"#AB46D2", fontWeight:"bold"}}>Fecha</label>
+                                        <input type="date" className="form-control" id="serviceDate" required />
+                                    </div>
+                                    <div className="mb-4" style={{width:"15vw"}}>
+                                        <label htmlFor="serviceTime" className="form-label" style={{color:"#AB46D2", fontWeight:"bold"}}>Hora</label>
+                                        <input type="time" className="form-control" id="serviceTime" required />
+                                    </div>
                                 </div>
                                     <button type="submit" className="btn btn-dark hover-effect btn-services">Confirmar</button>
                             </form>

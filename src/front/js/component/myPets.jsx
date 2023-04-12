@@ -211,7 +211,6 @@ export const Pets=()=>{
                         </div>                
                     </div>
                     <button className="text-danger mt-3" onClick={e=>deleteListElement(pet.item.id)} >Eliminar Mascota - <i className="text-danger fa-regular fa-trash-can"/> </button>
-                    <h5 className="mt-4">historial de la mascota (borrar)</h5>
                 </div>
                 <div className="p-3">
                     <button className="" onClick={e=>loadPage(0)}><i className="text-danger fa-solid fa-xmark"/></button>
