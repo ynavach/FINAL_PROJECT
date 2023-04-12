@@ -130,7 +130,7 @@ export const Pets=()=>{
         return(
             <div className={`d-flex justify-content-between ${animation == 1 ? "slide-in-right":"nada"}`}>
                 <div className="p-3">
-                    <h5 className="p-2 text-center bg-white borde m-4 mt-3 ">Formulario para <br/> nuevas mascotas</h5>
+                    <h5 className="p-2 text-center bg-white m-4 private-title" style={{color:"#AB46D2", fontWeight:"bold"}}>Formulario para <br/> nuevas mascotas</h5>
                     <div >
                         <form className="col">
                             <div className="d-flex mt-3 justify-content-between">
@@ -168,8 +168,10 @@ export const Pets=()=>{
                             <div className="mb-3 bg-white">
                                 <label htmlFor="avatar" className="form-label  pt-2 px-3">Agrega una foto de tu mascota</label>
                                 <input type="file" className="form-control" id="avatar" name="avatar" accept="image/png, image/jpeg" onChange={handleChange}/>                            
+                            </div>
+                            <div className="d-flex justify-content-center">
+                                <button type="submit" className="btn btn-light mt-4 hover-nav" onClick={uploadPetInfo} style={{color:"#AB46D2", fontWeight:"bold"}}>Agregar mascota</button>
                             </div>                        
-                            <button type="submit" className="mt-4 btn  btn-light " onClick={uploadPetInfo}>Agregar mascota</button>
                         </form>
                     </div>
                 </div>
@@ -183,37 +185,38 @@ export const Pets=()=>{
     const petInfo=()=>{
         let petInfo = pet.item
         return(
-            <div className={`ms-5 d-flex justify-content-between ${animation == 1 ? "slide-in-right":"nada"}`}>
-                <div className="pt-5">
-                    <div className="d-flex mt-5">
+            <div className={`d-flex justify-content-between ${animation == 1 ? "slide-in-right":"nada"}`}>
+                <div className="d-flex flex-column me-5">
+                    <div className="mb-5">
+                        <button className="float-end" onClick={e=>loadPage(0)}><i className="text-danger fa-solid fa-xmark"/></button>
+                    </div>
+                    <div className="d-flex align-items-center justify-content-evenly flex-row">
                         <img className="me-2 col-6 pet-pic" src={petInfo.photo}  style={{ objectFit: "contain" }}/>
-                        <div className="ms-4 container text-start bg-light p-3 borde  pet-info">
-                            <div className="col text-center">
-
-                            <h3 className="ms-2">{petInfo.name}</h3>
+                        <div className="container d-flex align-items-center flex-column text-start bg-light p-3 borde pet-info">
+                            <div className="text-center">
+                                <h2 className="ms-2">{petInfo.name}</h2>
                             </div>
                             <div className="col">
-                            Edad:
-                            <span className="ms-2">{petInfo.age}</span>
+                                <b>Edad:</b>
+                                <span className="ms-2">{petInfo.age} años</span>
                             </div>
                             <div className="col">
-                            Raza:
-                            <span className="ms-2">{petInfo.race}</span>
+                                <b>Raza:</b>
+                                <span className="ms-2">{petInfo.race}</span>
                             </div>
                             <div className="col">                            
-                            Especie:
-                            <span className="ms-2">{petInfo.species}</span>
+                                <b>Especie:</b>
+                                <span className="ms-2">{petInfo.species}</span>
                             </div>
                             <div className="col">                            
-                            Genero: 
-                            <span className="ms-2">{petInfo.gender}</span>
+                                <b>Genero:</b> 
+                                <span className="ms-2">{petInfo.gender}</span>
                             </div>
                         </div>                
                     </div>
-                    <button className="text-danger mt-3" onClick={e=>deleteListElement(pet.item.id)} >Eliminar Mascota - <i className="text-danger fa-regular fa-trash-can"/> </button>
-                </div>
-                <div className="p-3">
-                    <button className="" onClick={e=>loadPage(0)}><i className="text-danger fa-solid fa-xmark"/></button>
+                    <div className="col-12 d-flex justify-content-center align-items-center m-3">
+                        <button className="btn btn-light text-danger hover-nav m-3" onClick={e=>deleteListElement(pet.item.id)} >Eliminar Mascota - <i className="text-danger fa-regular fa-trash-can"/> </button>
+                    </div>
                 </div>
             </div>
         )
@@ -246,15 +249,15 @@ export const Pets=()=>{
 
 
     return (
-        <div className="d-flex h-100 fondo">
-            <div className="col-4  d-flex flex-column ">
+        <div className="d-flex align-items-center h-100 fondo">
+            <div className="col-4 d-flex flex-column" style={{width:"35%"}}>
                 <div className="">
-                    <h5 className=" p-2 text-center bg-white m-4 borde ">Lista de Mascotas Registradas</h5>
+                    <h5 className="p-2 text-center bg-white m-4 private-title" style={{color:"#AB46D2", fontWeight:"bold"}}>Lista de Mascotas Registradas</h5>
                     <div>
                         {
                             store.user ? (
-                                <ul className="p-0 text-start  list-group">{store.user.pets.map((item,index) => 
-                                    <li className="d-flex m-4 justify-content-center p-2 bg-white borde pointer" key={item.id} onClick={(e)=>(loadPage(2),getPet({item}),setAnimation(1))}>
+                                <ul className="p-0 text-start list-group ms-2">{store.user.pets.map((item,index) => 
+                                    <li className="d-flex align-items-center justify-content-center flex-column p-2 ms-4 me-4 mb-4 bg-white my-services" key={item.id} onClick={(e)=>(loadPage(2),getPet({item}),setAnimation(1))}>
                                         <div className="" >                                
                                                 {item.name} - {item.species}
                                         </div>
@@ -264,13 +267,13 @@ export const Pets=()=>{
                         }
                     </div>
                 </div>
-                <div className=" text-center  flex-fill">
-                    <button className="btn btn-light mt-3 " onClick={e=>loadPage(1)}>
+                <div className=" text-center flex-fill">
+                    <button className="btn btn-light mt-3 hover-nav" onClick={e=>loadPage(1)} style={{ color: "#AB46D2", fontWeight: "bold" }}>
                         Agregar una nueva mascota
                     </button>
                 </div>
             </div>
-            <div className={`flex-fill  `}>
+            <div className="d-flex flex-fill align-items-center justify-content-center">
                 {
                     view == 0 ? (<span/>) : view == 1 ? newPet(): petInfo()
                 }

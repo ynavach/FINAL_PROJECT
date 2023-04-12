@@ -55,7 +55,7 @@ export const My_Services=()=>{
             <div className={`d-flex justify-content-between ${animation == 1 ? "slide-in-right":"nothing"}`}>
                 <div className="card bg-light" style={{width: "auto", borderRadius:"5px", boxShadow:"0 0 10px rgba(54, 13, 124, 0.7)"}}>
                     <div className="card-header d-flex justify-content-between flex-row">
-                        <h5 className="card-title p-2 text-center bg-white my-services mt-2" style={{color:"#AB46D2", fontWeight:"bold"}}>Información Detallada ID-{serviceInfo.id}</h5>
+                        <h5 className="card-title p-2 text-center bg-white private-title mt-2" style={{color:"#AB46D2", fontWeight:"bold"}}>Información Detallada ID-{serviceInfo.id}</h5>
                         <button type="button" className="btn-close ms-4 mt-3" aria-label="Close" onClick={e=>(loadPage(0), setAnimation(1))}></button>
                     </div>
                     <div className="card-body d-flex align-items-center justify-content-center flex-column">
@@ -80,7 +80,7 @@ export const My_Services=()=>{
         <div className="d-flex align-items-center h-100 fondo">
             <div className="d-flex flex-column" style={{width:"58%"}}>
                 <div className="">
-                    <h5 className="p-2 text-center bg-white m-4 my-services" style={{color:"#AB46D2", fontWeight:"bold"}}>Lista de Servicios Agendados</h5>
+                    <h5 className="p-2 text-center bg-white m-4 private-title" style={{color:"#AB46D2", fontWeight:"bold"}}>Lista de Servicios Agendados</h5>
                     <div>
                         <ul className="p-0 text-start list-group ms-2">
                         {

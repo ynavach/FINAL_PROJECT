@@ -170,8 +170,11 @@ body{
 }
 
 .pet-info{
-    height: 180px;
-    width: 200px;
+    height: 230px;
+    width: 270px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(54, 13, 124, 0.7);
+    font-size: larger;
 }
 
 .profile-img {
@@ -219,6 +222,11 @@ body{
     opacity: 0.95;
     font-weight:500;
     cursor: pointer;
+    box-shadow: 0 0 10px rgba(54, 13, 124, 0.7);
+    border-radius: 5px;
+}
+
+.private-title {
     box-shadow: 0 0 10px rgba(54, 13, 124, 0.7);
     border-radius: 5px;
 }
