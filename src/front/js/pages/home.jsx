@@ -27,7 +27,7 @@ export const Home = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="text-center">
+    <div className="container-fluid text-center">
       <div
         className="jumbotron ms-2 pt-5 mt-3 "
         style={{ background: "white", fontFamily: "Montserrat, sans-serif" }}
@@ -37,15 +37,15 @@ export const Home = () => {
             <div className="col-sm-4 ">
               <img style={{ width: "25em" }} src={imgsec1left} />
             </div>
-            <div className="col-sm-4 ">
-              <h4 className="mt-2 pt-2">
+            <div className="col-sm-4">
+              <h2 className="mt-3 mb-4 pt-2">
                 {" "}
                 <strong>
                   {" "}
-                  El mejor equipo del mundo en <br></br> servicios de cuidado
-                  para mascotas <br></br> <br></br>{" "}
-                </strong>{" "}
-              </h4>
+                  El mejor equipo del mundo en servicios de cuidado
+                  <br></br> para mascotas
+                </strong>
+              </h2>
 
               <p
                 className=" lh-base text-center justify-content"
@@ -57,17 +57,17 @@ export const Home = () => {
               </p>
               <Link to="/services">
                 <span
-                  className="btn btn-primary btn-lg rounded-pill justify-content-center "
+                  className="btn btn-primary btn-lg rounded-pill justify-content-center btn-landing"
                   style={{ backgroundColor: "#FF6FB5" }}
                   href={"Servicios"}
                   role="button"
                 >
-                  Nuestros Servicios
+                  Conoce Nuestros Servicios
                 </span>
               </Link>
             </div>
             <div className="col-sm-4 ">
-              <img style={{ width: "23em" }} src={girldog} />
+              <img style={{width:"23em"}} src={girldog} />
             </div>
           </div>
         </div>
@@ -84,15 +84,18 @@ export const Home = () => {
               style={{ fontFamily: "Montserrat, sans-serif" }}
             >
               <div className="card-body">
-                <h3 className="card-title fw-bold pt-3 mt-3">
+                <h2 className="card-title fw-bold pt-3 mt-3 mb-3" style={{color:"#AB46D2", fontWeight:"bold"}}>
                   {" "}
-                  Huellas PetCare <br></br> <br></br>
-                </h3>
-                <p className="card-text">
+                  Huellas PetCare
+                </h2>
+                <p className="card-text ms-4 me-4 ps-4 pe-4">
                   En nuestra clínica, la atención veterinaria excepcional y el
                   servicio al cliente es nuestra forma de vida. No solo
                   destacamos por nuestro amor a los animales, sino también por
-                  nuestros amplios años de experiencia. En la actualidad estamos
+                  nuestros amplios años de experiencia. 
+                </p>
+                <p className="card-text ms-4 me-4 ps-4 pe-4">
+                  En la actualidad estamos
                   innovando con nuestro proyecto tecnológico de incorporación de
                   la aplicación <u> Huellas PetCare</u> a nuestro website.{" "}
                 </p>
@@ -101,12 +104,12 @@ export const Home = () => {
                 </p>
                 <Link to="/about">
                   <span
-                    className="btn btn-primary btn-lg rounded-pill justify-content-center "
+                    className="btn btn-primary btn-lg rounded-pill justify-content-center btn-landing mt-3"
                     style={{ backgroundColor: "#FF6FB5" }}
                     href={"About"}
                     role="button"
                   >
-                    Conocer más
+                    Conoce al Equipo
                   </span>
                 </Link>
               </div>
@@ -126,7 +129,7 @@ export const Home = () => {
       <div className="jumbotron p-2 mt-3" style={{ background: "white" }}>
         <h1 className="display-4">
           {" "}
-          <strong> Adquiere nuestros Servicios </strong>
+          <strong style={{color:"#AB46D2", fontWeight:"bold"}}> Adquiere nuestros Servicios </strong>
         </h1>
         <p className="lead"></p>
         <div>
@@ -215,12 +218,12 @@ export const Home = () => {
         </div>
         <Link to="/signup">
           <span
-            className="btn btn-primary btn-lg rounded-pill justify-content-center "
+            className="btn btn-primary btn-lg rounded-pill justify-content-center btn-landing"
             style={{ backgroundColor: "#FF6FB5" }}
             href={"About"}
             role="button"
           >
-            Regístrate
+            ¡Regístrate ahora!
           </span>
         </Link>
       </div>
