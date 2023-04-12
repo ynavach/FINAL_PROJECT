@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Pets, Services
+from api.models import db, User, Pets, Requested_Service
 from api.utils import generate_sitemap, APIException
 from flask_migrate import Migrate
 from flask_swagger import swagger
@@ -87,6 +87,30 @@ def handle_create_pets():
     db.session.commit()
     return jsonify(data), 201
 
+@api.route('/my-services' , methods = ['POST'])
+@jwt_required()
+def handle_schedule_services():
+    data = request.json
+    user_id = get_jwt_identity()
+    new_service = Requested_Service()
+    new_service.service_name = data['service_name']
+    new_service.date = data['date']
+    new_service.time = data['time']
+    new_service.owner_name = data['owner_name']
+    new_service.pet_name = data['pet_name']
+    new_service.pet_species = data['pet_species']
+    new_service.owner_id = user_id
+    new_service.pet_id = data["pet_id"]
+    db.session.add(new_service)
+    db.session.commit()
+    return jsonify(data), 201
+
+@api.route("/my-services/<service_id>", methods=['DELETE'])
+def handle_delete_service(service_id):
+    serviceDelete = Requested_Service.query.get(service_id)
+    db.session.delete(serviceDelete)
+    db.session.commit()
+    return jsonify({"Message": "Servicio eliminado exitosamente"}),200
 
 @api.route("/upload", methods=['POST'])
 def upload_file():

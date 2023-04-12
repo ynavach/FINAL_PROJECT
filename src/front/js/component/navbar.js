@@ -30,7 +30,7 @@ export const Navbar = () => {
               <Link to="/services" className="nav-link hover-nav" style={{ color: "#FFFFFF" }}>Servicios</Link>
             </li>
             <li className="nav-item">
-              <Link to="/gallery" className="nav-link hover-nav" style={{ color: "#FFFFFF" }}>Galeria</Link>
+              <Link to="/gallery" className="nav-link hover-nav" style={{ color: "#FFFFFF" }}>Galería</Link>
             </li>
           </ul>
         </div>

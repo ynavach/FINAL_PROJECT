@@ -5,8 +5,12 @@ db = SQLAlchemy()
 class Requested_Service(db.Model):
     __tablename__ = 'requested_service'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=False, nullable=False)
-    date = db.Column(db.DateTime(), unique=False, nullable=False)
+    service_name = db.Column(db.String(80), unique=False, nullable=False)
+    date = db.Column(db.Date(), unique=False, nullable=False)
+    time = db.Column(db.String(80), unique=False, nullable=False)
+    owner_name = db.Column(db.String(80), unique=False, nullable=False)
+    pet_name = db.Column(db.String(80), unique=False, nullable=False)
+    pet_species = db.Column(db.String(80), unique=False, nullable=False)
     owner_id = db.Column(db.ForeignKey('user.id'))
     pet_id = db.Column(db.ForeignKey('pets.id')) 
     owner = db.relationship('User', back_populates="requested_service")
@@ -18,8 +22,12 @@ class Requested_Service(db.Model):
     def serialize(self):
         return{
             "id": self.id,
-            "name": self.name,
-            "date": self.date,           
+            "service_name": self.service_name,
+            "date": self.date,
+            "time": self.time,          
+            "owner_name": self.owner_name,           
+            "pet_name": self.pet_name,
+            "pet_species": self.pet_species,          
             "owner_id":self.owner_id,
             "pet_id":self.pet_id
         }
@@ -76,5 +84,6 @@ class User(db.Model):
             "last_name": self.last_name,
             "phone_number": self.phone_number,
             "medic": self.medic,
-            "pets": [pet.serialize() for pet in self.pets]
+            "pets": [pet.serialize() for pet in self.pets],
+            "services": [service.serialize() for service in self.requested_service],
         }
