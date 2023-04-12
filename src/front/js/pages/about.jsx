@@ -139,7 +139,7 @@ export const About = () => {
             </h1>
             <img
               src={gatodevUrl}
-              alt="Fondo de servicios"
+              alt="Gato developer"
               style={{ width: "120%", position: "relative" }}
             />
           </Col>
@@ -266,7 +266,7 @@ export const About = () => {
                 <img
                   src={reimarUrl}
                   className="img-fluid img-thumbnail rounded-circle"
-                  alt="image1"
+                  alt="image2"
                 />
                 <div className="content mt-2">
                   <h4>Reimar Rodriguez</h4>
@@ -281,7 +281,7 @@ export const About = () => {
                 <img
                   src={wilfredoUrl}
                   className="img-fluid img-thumbnail rounded-circle"
-                  alt="image1"
+                  alt="image3"
                 />
                 <div className="content mt-2">
                   <h4>Wilfredo Andrade</h4>
@@ -296,7 +296,7 @@ export const About = () => {
                 <img
                   src={yunenseyUrl}
                   className="img-fluid img-thumbnail rounded-circle"
-                  alt="image1"
+                  alt="image4"
                 />
                 <div className="content mt-2">
                   <h4>Yunensey Nava</h4>
