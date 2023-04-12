@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
@@ -78,17 +78,21 @@ export const Modal_Services = (props) => {
         }
     }
 
+    const [ID, setID] = useState(() => {
+        let random = Math.floor(Math.random()*1000);
+        return random;
+    })
 
     return (
         <div className="d-flex align-items-center justify-content-center">
-            <button onClick={actions.getProfile} type="button" className="btn btn-dark btn-services hover-effect mt-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button onClick={actions.getProfile} type="button" className="btn btn-dark btn-services hover-effect mt-3" data-bs-toggle="modal" data-bs-target={`#staticBackdrop-${ID}`}>
                 Agendar Servicio
             </button>
 
-            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal fade" id={`staticBackdrop-${ID}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
-                    <div className="modal-content">
-                        <div className="modal-header" tyle={{height:"10vh"}}>
+                    <div className="modal-content" style={{width:"35vw"}}>
+                        <div className="modal-header" style={{height:"10vh"}}>
                             <img style={{backgroundColor:"#AB46D2", height: "5vh", borderRadius:"5px"}} src={logoblancoUrl}></img>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -97,7 +101,7 @@ export const Modal_Services = (props) => {
                                 <h2 style={{color:"#AB46D2", fontWeight:"bold"}}>
                                     {props.name}
                                 </h2>
-                                <img className="m-3" src="https://cdn-icons-png.flaticon.com/512/7613/7613784.png" alt="Service 1 Logo" width="100vh" height="100vw" style={{objectFit:"cover"}}></img>
+                                <img className="m-3" src="https://cdn-icons-png.flaticon.com/512/7613/7613784.png" alt="Service Logo" width="100vh" height="100vw" style={{objectFit:"cover"}}></img>
                                 <div className="mb-2" style={{width:"25vw"}}>
                                     <label htmlFor="serviceOwner" className="form-label" style={{color:"#AB46D2", fontWeight:"bold"}}>Titular</label>
                                     <input type="text" className="form-control" placeholder={store.user?.name + " " + store.user?.last_name} value={store.user?.name + " " + store.user?.last_name} id="serviceOwner" disabled></input>

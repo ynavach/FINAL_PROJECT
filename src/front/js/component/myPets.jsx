@@ -250,7 +250,7 @@ export const Pets=()=>{
         <div className="d-flex h-100 fondo">
             <div className="col-4  d-flex flex-column ">
                 <div className="">
-                    <h5 className=" p-2 text-center bg-white m-4 borde ">Lista de las mascotas registradas</h5>
+                    <h5 className=" p-2 text-center bg-white m-4 borde ">Lista de Mascotas Registradas</h5>
                     <div>
                         {
                             store.user ? (

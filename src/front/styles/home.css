@@ -123,7 +123,6 @@ i.fa {
     padding-right: 10px;
 }
 
-
 .list-group{
     max-height: 400px;
     min-height: 400px;
@@ -208,4 +207,18 @@ body{
     border-radius: 20px 20px 20px 20px;
     box-shadow: 0 0 10px rgba(54, 13, 124, 0.7);
     height: 100%;
+}
+
+.my-services {
+    box-shadow: 0 0 10px rgba(54, 13, 124, 0.7);
+    border-radius: 5px;
+}
+
+.my-services:hover {
+    color:#AB46D2;
+    opacity: 0.95;
+    font-weight:500;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(54, 13, 124, 0.7);
+    border-radius: 5px;
 }

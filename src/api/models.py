@@ -82,5 +82,6 @@ class User(db.Model):
             "last_name": self.last_name,
             "phone_number": self.phone_number,
             "medic": self.medic,
-            "pets": [pet.serialize() for pet in self.pets]
+            "pets": [pet.serialize() for pet in self.pets],
+            "services": [service.serialize() for service in self.requested_service],
         }

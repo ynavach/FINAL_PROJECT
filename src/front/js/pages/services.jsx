@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Context } from "../store/appContext.js";
 import { Modal_Services } from "../component/modalServices.jsx";
+import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import consultaUrl from "../../img/consulta.png";
 import vacunacionUrl from "../../img/vacunacion.png";
@@ -10,10 +11,12 @@ import peluqueriaUrl from "../../img/peluqueria.png";
 import desparasitacionUrl from "../../img/desparasitacion.png";
 import emergenciaUrl from "../../img/emergencia.png";
 import fondoserv2Url from "../../img/fondoserv2.png";
+import { Navigate } from "react-router-dom";
 
 const Services = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
 
   const handleCardHover = (index) => {
     setHoveredCard(index);
@@ -30,15 +33,14 @@ const Services = () => {
       <Container style={{ marginTop: "100px" }}>
         <Row>
           <Col md={6}>
-            <h1 className="mb-5 mt-5">Servicios</h1>
+            <h1 className="mb-2 mt-5" style={{color:"#AB46D2", fontWeight:"bold"}}>Servicios</h1>
             <div
               className="fusion-column col-lg-12 col-md-12 col-sm-12"
-              style={{ marginTop: "50px", marginBottom: "50px" }}
             >
               <p>
-                Tenemos a disposición un equipo de expertos en Medicina
-                Veterinaria y personal técnico altamente cualificado, con una
-                vasta experiencia y comprometidos con nuestra misión de ofrecer
+                Tenemos a disposición un equipo de expertos en Medicina Veterinaria 
+                y personal técnico altamente cualificado, 
+                con una vasta experiencia y comprometidos con nuestra misión de ofrecer 
                 cuidado de la salud a todas las especies de animales de
                 compañía, a través de diagnósticos precisos y tratamientos
                 efectivos. Además, nos enorgullece proveer la mejor atención
@@ -50,15 +52,20 @@ const Services = () => {
                 <li>Consultas de Lunes a Domingos de 8am a 4pm</li>
                 <li>Emergencias las 24 horas</li>
               </ul>
+              <h5 className="mt-4" style={{color:"#AB46D2", fontWeight:"bold"}}>Experiencia de Usuario</h5>
+              <p>
+              Con el registro en nuestra plataforma ofrecemos una herramienta práctica y accesible, 
+              diseñada para facilitar la comunicación y el cuidado personalizado de las mascotas. 
+              A través de nuestra aplicación web, podrán gestionar el historial médico de sus mascotas 
+              y programar citas de manera rápida y sencilla.
+              </p>
               <Row className="mt-4">
                 <Col className="text-center">
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    style={{ backgroundColor: "#ab46d2", borderRadius: "50px" }}
-                  >
-                    Reserva ahora
-                  </Button>
+                  <Link to="/signup">
+                    <Button className="btn btn-dark btn-services hover-effect mt-3" size="lg" style={{ backgroundColor: "#ab46d2", borderRadius: "50px" }}>
+                      ¡Registrate ahora!
+                    </Button>
+                  </Link>
                 </Col>
               </Row>
             </div>

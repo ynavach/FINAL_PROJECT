@@ -104,6 +104,13 @@ def handle_schedule_services():
     db.session.commit()
     return jsonify(data), 201
 
+@api.route("/my-services/<service_id>", methods=['DELETE'])
+def handle_delete_service(service_id):
+    serviceDelete = Requested_Service.query.get(service_id)
+    db.session.delete(serviceDelete)
+    db.session.commit()
+    return jsonify({"Message": "Servicio eliminado exitosamente"}),200
+
 @api.route("/upload", methods=['POST'])
 def upload_file():
     cloudinary.config(cloud_name = 'dmgyyv1j3', api_key='253179481662428', api_secret='NXxWGCzsuF3Tb9zOqqXrXQPwjZE')
