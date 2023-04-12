@@ -64,7 +64,6 @@ export const Modal_Services = (props) => {
             })
             if (response.status == 201) {
                 const body = await response.json();
-                console.log(body);
                 toast.success("Servicio agendado correctamente", {duration:4000});
             }
             else if (response.status == 400) {

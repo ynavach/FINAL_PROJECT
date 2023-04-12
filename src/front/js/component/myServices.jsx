@@ -11,7 +11,6 @@ export const My_Services=()=>{
     const [animation, setAnimation] = useState(0);
     const navigate = useNavigate();
 
-    console.log(store.user)
 
     const splitDate = (date) => {
         let aux = date.split(' ');
@@ -31,7 +30,6 @@ export const My_Services=()=>{
     }, [store.jwt_token]);
 
     const deleteService = async (service_id) => {
-        console.log("entra a eliminar el id: " ,service_id)
         try{
             const response =  await fetch(process.env.BACKEND_URL + `/api/my-services/${service_id}`,{
                 method: 'DELETE',

@@ -66,7 +66,7 @@ export const Pets=()=>{
         }
         catch(error){
             console.log(error);
-            return "https://starwars-visualguide.com/assets/img/big-placeholder.jpg"
+            return "https://cdn-icons-png.flaticon.com/512/1312/1312500.png"
         }
     }
 
@@ -74,7 +74,7 @@ export const Pets=()=>{
     const uploadPetInfo= async(event)=>{
         event.preventDefault();
 
-        let url = "https://starwars-visualguide.com/assets/img/big-placeholder.jpg"
+        let url = "https://cdn-icons-png.flaticon.com/512/1312/1312500.png"
         if (newImage.file !== null) {
             console.log("entra a cargar imagen")
             url = await uploadImage()
@@ -90,7 +90,6 @@ export const Pets=()=>{
             "photo": url
         }
         if (verifyInput(petAge, petRace, petName, petGender, petSpecies)) {
-            console.log("cuerpo",bodyPet )
             try{
                 const response= await fetch(process.env.BACKEND_URL + "/api/pets",{
 
@@ -103,7 +102,8 @@ export const Pets=()=>{
                 });
                 if (response.status == 201) {
                     toast.success("Mascota registrada satisfactoriamente");    
-                    actions.getProfile()            
+                    actions.getProfile() 
+                    loadPage(0)
                 } else {
                     toast.error("Se produjo un error al registrar su mascota");
                     throw new Error(response.status);
