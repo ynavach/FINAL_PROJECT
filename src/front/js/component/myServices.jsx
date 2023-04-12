@@ -86,6 +86,7 @@ export const My_Services=()=>{
                         <ul className="p-0 text-start list-group ms-2">
                         {
                             store.user ? (
+                                store.user.services.length != [] ? (
                                     store.user.services.map((item,index) => {
                                         let shortDate = splitDate(item.date)
                                         return (
@@ -94,13 +95,18 @@ export const My_Services=()=>{
                                             </li>
                                         )
                                     })
-                                    ) : (
-                                        <div className="d-flex align-items-center justify-content-center fs-3" style={{ height: "45vh" }}>
-                                            <div className="spinner-border text-light" role="status">
-                                                <span className="sr-only">Loading...</span>
-                                            </div>
-                                        </div>
-                                    )
+                                ):(
+                                    <li className="d-flex align-items-center justify-content-center flex-column p-2 ms-4 me-4 mb-2 bg-white my-services">                               
+                                        <span>¡Todavia no tienes servicios agendados!</span>
+                                    </li>
+                                )
+                            ) : (
+                                <div className="d-flex align-items-center justify-content-center fs-3" style={{ height: "45vh" }}>
+                                    <div className="spinner-border text-light" role="status">
+                                        <span className="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            )
                         }
                         </ul>
                     </div>

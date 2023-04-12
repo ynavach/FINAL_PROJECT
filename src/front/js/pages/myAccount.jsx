@@ -70,7 +70,7 @@ export const My_Account = () => {
           </div>
           <div className="d-flex align-items-center justify-content-center p-3">
             <button
-              onClick={(e) => LoadPage(2)}
+              onClick={(e) => (LoadPage(2))}
               className="btn btn-light hover-nav"
               style={{ color: "#AB46D2", fontWeight: "bold" }}
             >
