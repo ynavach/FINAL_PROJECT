@@ -49,22 +49,22 @@ export const About = () => {
                 paddingRight: "30px",
               }}
             >
-              <h6 className="my-3" style={{ lineHeight: "1.5" }}>
+              <p className="my-3" style={{ lineHeight: "1.5" }}>
                 Huellas Petcare nació de la necesidad del mercado de una
                 herramienta que hiciera que el servicio veterinario fuese más
                 fácil y accesible. Sabemos que para muchos dueños de mascotas,
                 programar citas y servicios en la clínica veterinaria puede ser
                 un proceso complicado y estresante. Por eso, decidimos crear una
                 aplicación web que hiciera este proceso más fácil y sin estrés.
-              </h6>
-              <h6 className="my-3" style={{ lineHeight: "1.5" }}>
+              </p>
+              <p className="my-3" style={{ lineHeight: "1.5" }}>
                 En nuestra plataforma los usuarios pueden programar citas y
                 servicios en cualquier momento y lugar. Sabemos que cada animal
                 es único y requiere una atención específica. Así que como
                 desarrolladores, nos enfocamos en crear una plataforma que
                 hiciera posible esto, sin descuidar la calidad y la atención
                 personalizada.
-              </h6>
+              </p>
             </div>
           </Col>
         </Row>
@@ -78,12 +78,12 @@ export const About = () => {
                 paddingRight: "30px",
               }}
             >
-              <h6 className="my-3" style={{ lineHeight: "1.5" }}>
+              <p className="my-3" style={{ lineHeight: "1.5" }}>
                 En Huellas Petcare, estamos comprometidos a seguir mejorando
                 nuestra aplicación para brindar la mejor experiencia posible a
                 nuestros usuarios. Esto nos lleva a implementar algunas mejoras
                 en el futuro:
-              </h6>
+              </p>
               <ul>
                 <li
                   className="my-3"
