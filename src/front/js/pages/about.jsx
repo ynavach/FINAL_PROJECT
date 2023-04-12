@@ -5,6 +5,10 @@ import { Context } from "../store/appContext";
 import toast, { Toaster } from 'react-hot-toast';
 
 import avatargenerico1 from "../../img/avatargenerico1.png"; 
+import fotoch from "../../img/Fotoch.jpeg";
+import fotoyn from "../../img/Fotoyn.jpeg";
+import fotowa from "../../img/Fotowa.jpg";
+import imgcatsdogs2 from "../../img/imgcatsdogs2.jpg";
 
 export const About = () => {
 	const { store, actions } = useContext(Context);
@@ -41,7 +45,7 @@ export const About = () => {
 						<div className="row row-cols-1 row-cols-md-4 g-4" style={{maxWidth: "900px"}}>
 							<div className="col">
 								<div className="card">
-									<img src="avatargenerico1.png" className="card-img-top" alt="..."/>
+									<img src="Fotowa.jpg" className="card-img-top" alt="..."/>
 									<div className="card-body">
 										<h5 className="card-title">Wilfredo Andrade</h5>
 										<div className="d-flex justify-content-center " >
@@ -54,7 +58,7 @@ export const About = () => {
 							</div>
 							<div className="col">
 								<div className="card">
-									<img src="avatargenerico1.png" className="card-img-top" alt="..."/>
+									<img src="Fotoch.jpeg" className="card-img-top" alt="..."/>
 									<div className="card-body">
 										<h5 className="card-title">Carlos Herrera</h5>
 										<div className="d-flex justify-content-center " >
@@ -78,7 +82,7 @@ export const About = () => {
 							</div>
 							<div className="col">
 								<div className="card">
-									<img src="avatargenerico1.png" className="card-img-top" alt="..."/>
+									<img src="Fotoyn.jpeg" className="card-img-top img-responsive" style={{height:"200px"}} alt="..."/>
 									<div className="card-body">
 										<h5 className="card-title">Yunensey Nava</h5>
 										<div className="d-flex justify-content-center " >
@@ -127,6 +131,8 @@ export const About = () => {
 								<div className=" mb-3 pb-3" >
 									<p className="fw-bold mt-1 pt-1"></p>
 									<p>Nuestro proceso de creación de la Aplicación estuvo basado en la metodología ágil Scrum.</p>
+									<p className="">Partimos del diseño de la Landing page  y de ahí todo el resto de las vistas de la aplicación.<br></br>	</p>
+									<p className="">Utilizamos APIs y bancos de fotos para imágenes alusivas a la misión de la clínica veterinaria.<br></br>	</p>
 									<p className="">La Paleta de Colores escogida estuvo basada en colores vibrantes.  <br></br>	</p>
 									<p>La tipografía utilizada fue Montserrat de GoogleFonts. </p>
 									<p className="">El logotipo fue pensado en combinación del nombre con el propósito clínico, haciéndolo así, de fácil entendimiento.<br></br></p>
@@ -147,7 +153,7 @@ export const About = () => {
 								Lenguajes y Tecnologías
 							</div>
 							<div  className="card-body">
-								<h5  className="card-title pb-2 mb-2">Modales React -      Flask -     Postgres <br></br> </h5>
+								<h5  className="card-title pb-2 mb-2">Modales React -      Flask -     PostgreSQL <br></br> </h5>
 								<p  className="card-text pb-4 mb-4">SQLAlchemy     -     JWT    -     Cloudinary   </p>
 								<div className="d-flex justify-content-between mb-3 pb-3" >
 									<i className= "fa-brands fa-html5 fa-64x fa-lg ms-4 ps-4"></i>
@@ -170,7 +176,7 @@ export const About = () => {
 						<div className="card mb-3" >
 							<div className="row g-0">
 								<div className="col-md-4">
-									<img src="avatargenerico1.png" className="img-fluid rounded-start" alt="..."/>
+									<img src="imgcatsdogs2.jpg" className="img-fluid rounded-start" alt="..."/>
 								</div>
 								<div className="col-md-8 d-flex justify-content-center mt-3 pt-3">
 									<div className="card-body">
