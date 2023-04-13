@@ -51,6 +51,7 @@ export const My_Services=()=>{
 
     const serviceInfo=()=>{
         let serviceInfo = service.item
+        let shortDate = splitDate(serviceInfo.date)
         return(
             <div className={`d-flex justify-content-between ${animation == 1 ? "slide-in-right":"nothing"}`}>
                 <div className="card bg-light" style={{width: "auto", borderRadius:"5px", boxShadow:"0 0 10px rgba(54, 13, 124, 0.7)"}}>
@@ -63,7 +64,7 @@ export const My_Services=()=>{
                         <div className="container d-flex flex-column text-start bg-light p-3">
                             <span><b>ID Servicio:</b> {serviceInfo.id}</span>
                             <span><b>Concepto:</b> {serviceInfo.service_name}</span>
-                            <span><b>Fecha:</b> {serviceInfo.date}</span>
+                            <span><b>Fecha:</b> {shortDate}</span>
                             <span><b>Hora Estimada:</b> {serviceInfo.time}</span>
                             <span><b>Titular:</b> {serviceInfo.owner_name}</span>
                             <span><b>Mascota:</b> {serviceInfo.pet_name}</span>

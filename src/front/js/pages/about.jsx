@@ -256,7 +256,7 @@ export const About = () => {
                 <div className="content mt-2">
                   <h4>Carlos Herrera</h4>
                   <a href="https://github.com/careduh97" target="_blank">
-                    <i class="fab fa-github pe-1"></i>
+                    <i className="fab fa-github pe-1"></i>
                   </a>
                 </div>
               </div>
@@ -271,7 +271,7 @@ export const About = () => {
                 <div className="content mt-2">
                   <h4>Reimar Rodriguez</h4>
                   <a href="https://github.com/pulgazion" target="_blank">
-                    <i class="fab fa-github pe-1"></i>
+                    <i className="fab fa-github pe-1"></i>
                   </a>
                 </div>
               </div>
@@ -286,7 +286,7 @@ export const About = () => {
                 <div className="content mt-2">
                   <h4>Wilfredo Andrade</h4>
                   <a href="https://github.com/N1kf3" target="_blank">
-                    <i class="fab fa-github pe-1"></i>
+                    <i className="fab fa-github pe-1"></i>
                   </a>
                 </div>
               </div>
@@ -301,7 +301,7 @@ export const About = () => {
                 <div className="content mt-2">
                   <h4>Yunensey Nava</h4>
                   <a href="https://github.com/ynavach" target="_blank">
-                    <i class="fab fa-github pe-1"></i>
+                    <i className="fab fa-github pe-1"></i>
                   </a>
                 </div>
               </div>

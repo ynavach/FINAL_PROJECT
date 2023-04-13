@@ -12,7 +12,7 @@ class Requested_Service(db.Model):
     pet_name = db.Column(db.String(80), unique=False, nullable=False)
     pet_species = db.Column(db.String(80), unique=False, nullable=False)
     owner_id = db.Column(db.ForeignKey('user.id'))
-    pet_id = db.Column(db.ForeignKey('pets.id')) 
+    pet_id = db.Column(db.ForeignKey('pets.id', ondelete="CASCADE")) 
     owner = db.relationship('User', back_populates="requested_service")
     pets = db.relationship('Pets', back_populates="requested_service")
 
@@ -43,7 +43,7 @@ class Pets(db.Model):
     photo = db.Column(db.String(500), unique=False, nullable=False)
     owner_id = db.Column(db.ForeignKey('user.id'))  
     owner = db.relationship('User', back_populates="pets")
-    requested_service = db.relationship('Requested_Service', back_populates="pets")
+    requested_service = db.relationship('Requested_Service', back_populates="pets", cascade="all, delete")
 
     def _repr_(self):
         return f'<Pets {self.name}>'

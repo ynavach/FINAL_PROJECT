@@ -254,17 +254,31 @@ export const Pets=()=>{
                 <div className="">
                     <h5 className="p-2 text-center bg-white m-4 private-title" style={{color:"#AB46D2", fontWeight:"bold"}}>Lista de Mascotas Registradas</h5>
                     <div>
+                        <ul className="p-0 text-start list-group ms-2"> 
                         {
                             store.user ? (
-                                <ul className="p-0 text-start list-group ms-2">{store.user.pets.map((item,index) => 
-                                    <li className="d-flex align-items-center justify-content-center flex-column p-2 ms-4 me-4 mb-4 bg-white my-services" key={item.id} onClick={(e)=>(loadPage(2),getPet({item}),setAnimation(1))}>
-                                        <div className="" >                                
-                                                {item.name} - {item.species}
-                                        </div>
-                                    </li>)}
-                                </ul>
-                            ) : (<h5>Cargando información privada...</h5>)
+                                store.user.pets.length != [] ? (
+                                    store.user.pets.map((item,index) => {
+                                        return (
+                                            <li className="d-flex align-items-center justify-content-center flex-column p-2 ms-4 me-4 mb-4 bg-white my-services" key={item.id} onClick={(e)=>(loadPage(2),getPet({item}),setAnimation(1))}>
+                                                <div className="" >                                
+                                                    {item.name} - {item.species}
+                                                </div>
+                                            </li>)
+                                    })
+                                ) : (
+                                    <li className="d-flex align-items-center justify-content-center flex-column p-2 ms-4 me-4 mb-2 bg-white private-title">                               
+                                        <span>¡Todavia no tienes mascotas registradas!</span>
+                                    </li>)
+                            ) : (
+                                <div className="d-flex align-items-center justify-content-center fs-3" style={{ height: "45vh" }}>
+                                    <div className="spinner-border text-light" role="status">
+                                        <span className="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            )
                         }
+                        </ul>
                     </div>
                 </div>
                 <div className=" text-center flex-fill">
